@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "94gITfsgL2I=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ARDCI\\source\\repos\\MemberManagement\\MemberManagement.Domain\\MemberManagement.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ARDCI\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.2\\microsoft.extensions.dependencyinjection.abstractions.10.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

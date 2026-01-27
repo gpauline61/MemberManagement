@@ -1,0 +1,12 @@
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Domain\bin\Debug\net10.0\MemberManagement.Domain.deps.json
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Domain\bin\Debug\net10.0\MemberManagement.Domain.dll
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Domain\bin\Debug\net10.0\MemberManagement.Domain.pdb
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Domain\obj\Debug\net10.0\MemberManagement.Domain.csproj.AssemblyReference.cache
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Domain\obj\Debug\net10.0\MemberManagement.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Domain\obj\Debug\net10.0\MemberManagement.Domain.AssemblyInfoInputs.cache
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Domain\obj\Debug\net10.0\MemberManagement.Domain.AssemblyInfo.cs
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Domain\obj\Debug\net10.0\MemberManagement.Domain.csproj.CoreCompileInputs.cache
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Domain\obj\Debug\net10.0\MemberManagement.Domain.dll
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Domain\obj\Debug\net10.0\refint\MemberManagement.Domain.dll
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Domain\obj\Debug\net10.0\MemberManagement.Domain.pdb
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Domain\obj\Debug\net10.0\ref\MemberManagement.Domain.dll

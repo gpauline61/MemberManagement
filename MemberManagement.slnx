@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="MemberManagement.Application/MemberManagement.Application.csproj" />
+  <Project Path="MemberManagement.Domain/MemberManagement.Domain.csproj" />
+  <Project Path="MemberManagement.Infrastracture/MemberManagement.Infrastracture.csproj" />
+  <Project Path="MemberManagement/MemberManagement.Web.csproj" />
+</Solution>
