@@ -6,6 +6,7 @@ C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Domain\obj\Debug\n
 C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Domain\obj\Debug\net10.0\MemberManagement.Domain.AssemblyInfoInputs.cache
 C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Domain\obj\Debug\net10.0\MemberManagement.Domain.AssemblyInfo.cs
 C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Domain\obj\Debug\net10.0\MemberManagement.Domain.csproj.CoreCompileInputs.cache
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Domain\obj\Debug\net10.0\MemberManagement.Domain.sourcelink.json
 C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Domain\obj\Debug\net10.0\MemberManagement.Domain.dll
 C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Domain\obj\Debug\net10.0\refint\MemberManagement.Domain.dll
 C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Domain\obj\Debug\net10.0\MemberManagement.Domain.pdb

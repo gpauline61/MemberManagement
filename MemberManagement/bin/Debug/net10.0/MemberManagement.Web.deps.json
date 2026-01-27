@@ -10,6 +10,7 @@
         "dependencies": {
           "MemberManagement.Application": "1.0.0",
           "MemberManagement.Infrastracture": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "10.0.2",
           "Microsoft.EntityFrameworkCore.Design": "10.0.2"
         },
         "runtime": {
@@ -749,9 +750,7 @@
       },
       "MemberManagement.Application/1.0.0": {
         "dependencies": {
-          "MemberManagement.Domain": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "10.0.2",
-          "Microsoft.EntityFrameworkCore.SqlServer": "10.0.2"
+          "MemberManagement.Domain": "1.0.0"
         },
         "runtime": {
           "MemberManagement.Application.dll": {

@@ -6,8 +6,13 @@ using System.Text;
 
 namespace MemberManagement.Infrastracture.Data
 {
-    public class MemberManagementDbContext(DbContextOptions<MemberManagementDbContext> options) :DbContext(options)
+    public class MemberManagementDbContext : DbContext
     {
+        public MemberManagementDbContext(DbContextOptions<MemberManagementDbContext> options) : base(options)
+        {
+            
+        }
         public DbSet<Member> Members { get; set; }
     }
+    
 }
