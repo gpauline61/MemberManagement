@@ -75,15 +75,14 @@
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
                 <td>
-
-                    <a asp-action="Edit" asp-route-id="@item.MemberID" style="text-decoration: none;">
-                        <i class="bi bi-pencil-square fs-4" style="color: #439be8;" title="Edit"></i>
-                    </a>
                     <a asp-action="Detail" asp-route-id="@item.MemberID" style="text-decoration: none;">
                         <i class="bi bi-eye-fill fs-4" style="color: #2807e8" title="View"></i>
                     </a>
+                    <a asp-action="Edit" asp-route-id="@item.MemberID" style="text-decoration: none;">
+                        <i class="bi bi-pencil-square fs-4" style="color: #439be8;" title="Edit"></i>
+                    </a>
                 </td>
-            </tr>
+            </tr> 
             counter++;
         }
     </tbody>

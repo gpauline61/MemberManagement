@@ -19,6 +19,6 @@ namespace MemberManagement.Web.ViewModels
         [Display(Name = "Email Address")]
         public string Email { get; set; }
         [Display(Name = "Active")]
-        public bool IsActive { get; set; }
+        public string IsActive { get; set; }
     }
 }

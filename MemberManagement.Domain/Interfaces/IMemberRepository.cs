@@ -15,7 +15,6 @@ namespace MemberManagement.Domain.Interfaces
         Task SaveEditMember(int id, Member member);
         Task<Member> DeleteMember(int id);
         Task DeleteConfirmed(int id);
-        List<int> GetMemberCount();
         Task<IEnumerable> GetAllActive();
         Task<IEnumerable> GetAllInactive();
     }

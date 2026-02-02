@@ -20,7 +20,6 @@ namespace MemberManagement.Infrastracture.Repositories
         public async Task<IEnumerable> GetAll()
         {
             return await _context.Members.ToListAsync();
-
         }
 
         public bool Add(Member member)
@@ -119,25 +118,11 @@ namespace MemberManagement.Infrastracture.Repositories
             Update(member);
             return Save();
         }
-
-        public List<int> GetMemberCount()
-        {
-            List<int> counters = new List<int>();
-            counters.Add(_context.Members.Count());
-            counters.Add(_context.Members
-                .Where(m => m.IsActive)
-                .Count());
-            counters.Add(_context.Members
-                .Where(m => m.IsActive == false)
-                .Count());
-            return counters;
-        }
-
         public async Task<IEnumerable> GetAllActive()
         {
-            
+
             var members = await _context.Members
-                .Where(m => m.IsActive == false)
+                .Where(m => m.IsActive)
                 .OrderBy(m => m.LastName)
                 .ToListAsync();
             return members;
@@ -151,6 +136,7 @@ namespace MemberManagement.Infrastracture.Repositories
                 .ToListAsync();
             return members;
         }
+
 
     }
 }

@@ -18,6 +18,7 @@ namespace MemberManagement.Web.ViewModels
         public string ContactNo { get; set; }
         [Display(Name = "Email Address")]
         public string Email { get; set; }
+        [Display(Name = "Active Status")]
         public string IsActive { get; set; }
     }
 }

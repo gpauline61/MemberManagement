@@ -1,4 +1,4 @@
-﻿using MemberManagement.Domain.Enum;
+﻿ using MemberManagement.Domain.Enum;
 using System.ComponentModel.DataAnnotations;
 
 namespace MemberManagement.Web.ViewModels

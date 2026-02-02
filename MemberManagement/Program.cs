@@ -10,8 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddWebDI();
-builder.Services.AddScoped<MemberService>();
-builder.Services.AddScoped<IMemberRepository, MemberRepository>();
+//builder.Services.AddScoped<MemberService>();
+//builder.Services.AddScoped<IMemberRepository, MemberRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

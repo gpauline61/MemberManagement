@@ -722,6 +722,9 @@
             "projectReferences": {
               "C:\\Users\\ARDCI\\source\\repos\\MemberManagement\\MemberManagement.Application\\MemberManagement.Application.csproj": {
                 "projectPath": "C:\\Users\\ARDCI\\source\\repos\\MemberManagement\\MemberManagement.Application\\MemberManagement.Application.csproj"
+              },
+              "C:\\Users\\ARDCI\\source\\repos\\MemberManagement\\MemberManagement.Domain\\MemberManagement.Domain.csproj": {
+                "projectPath": "C:\\Users\\ARDCI\\source\\repos\\MemberManagement\\MemberManagement.Domain\\MemberManagement.Domain.csproj"
               }
             }
           }

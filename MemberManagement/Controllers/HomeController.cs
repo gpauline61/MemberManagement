@@ -1,4 +1,5 @@
 using MemberManagement.Application.Services;
+using MemberManagement.Domain.Entities;
 using MemberManagement.Models;
 using MemberManagement.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -8,14 +9,14 @@ namespace MemberManagement.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly MemberService _memberService;
-        public HomeController(MemberService memberService)
+        private readonly HomeService _homeService;
+        public HomeController(HomeService homeService)
         {
-            _memberService = memberService;
+            _homeService = homeService;
         }
         public IActionResult Index()
         {
-            var memberCount = _memberService.GetMemberCount();
+            var memberCount = _homeService.GetMemberCount();
             var memberCountVM = new MemberCountViewModel()
             {
                 TotalMembers = memberCount[0],
@@ -32,5 +33,7 @@ namespace MemberManagement.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        
     }
 }
