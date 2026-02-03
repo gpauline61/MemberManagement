@@ -13,9 +13,4 @@
   </ItemGroup>
 
 
-
-  <ItemGroup>
-    <Folder Include="Mapping\" />
-  </ItemGroup>
-
 </Project>

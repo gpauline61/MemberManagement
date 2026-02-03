@@ -7,6 +7,7 @@ namespace MemberManagement.Domain.Enum
 {
     public enum BranchCategory
     {
+        [Display(Name = "Catanduanes Branch")]
         Catanduanes,
         [Display(Name = "Agusan Del Norte")]
         AgusanDelNorte,
