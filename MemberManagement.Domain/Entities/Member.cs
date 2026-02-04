@@ -1,9 +1,7 @@
-﻿using MemberManagement.Domain.Enum;
-using System;
-using System.Collections.Generic;
+﻿//Member Entity
+
+using MemberManagement.Domain.Enum;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
-using System.Xml.Linq;
 
 namespace MemberManagement.Domain.Entities
 {
@@ -13,10 +11,10 @@ namespace MemberManagement.Domain.Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateOnly Birthdate { get; set; }
-        public string Address { get; set; }
+        public string? Address { get; set; }
         public BranchCategory Branch { get; set; }
-        public string ContactNo { get; set; }
-        public string Email { get; set; }
+        public string? ContactNo { get; set; }
+        public string? Email { get; set; }
         public bool IsActive { get; set; }
         public DateTime DateCreated { get; set; }
     }

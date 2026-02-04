@@ -1,8 +1,4 @@
-﻿using MemberManagement.Domain.Interfaces;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace MemberManagement.Domain
 {
@@ -13,4 +9,5 @@ namespace MemberManagement.Domain
             return services;
         }
     }
+
 }

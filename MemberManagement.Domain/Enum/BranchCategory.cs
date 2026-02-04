@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿//Enum to list all current Branches
+
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace MemberManagement.Domain.Enum
 {

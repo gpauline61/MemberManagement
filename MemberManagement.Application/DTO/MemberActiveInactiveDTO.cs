@@ -1,8 +1,6 @@
-﻿using MemberManagement.Domain.Enum;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿//DTO for Active and Inactive pages of members
+
+using MemberManagement.Domain.Enum;
 
 namespace MemberManagement.Application.DTO
 {

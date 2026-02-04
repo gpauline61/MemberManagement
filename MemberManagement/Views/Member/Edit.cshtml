@@ -91,7 +91,15 @@
     </div>
     <div class="row justify-content-lg-center">
         <div class="col-2">
-            <input type="submit" value="Save" class="btn btn-primary" />
+                @if (Model == null)
+                {
+                    <input disabled type="submit" value="Save" class="btn btn-primary" />
+                }
+                else
+                {
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                }
+            
         </div>
     </div>
     </form>

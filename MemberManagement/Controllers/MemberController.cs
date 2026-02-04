@@ -13,12 +13,17 @@ namespace MemberManagement.Web.Controllers
         {
             _memberService = memberService;
         }
+
+        //View all members
         public async Task<IActionResult> Index()
         {
-            var status = "";
-            IEnumerable<MemberIndexDTO> membersDTO = (IEnumerable<MemberIndexDTO>)await _memberService.GetAll();
+            var membersDTO = (IEnumerable<MemberIndexDTO>)
+                await _memberService.GetAll();
             
-            List<MemberIndexViewModel> memberResultViewModel = new List<MemberIndexViewModel>();
+            List<MemberIndexViewModel> memberResultViewModel = 
+                new List<MemberIndexViewModel>();
+
+            //manual mapping of a DTO to ViewModel
             foreach (var memberDTO in membersDTO)
             {
                 var memberViewModel = new MemberIndexViewModel()
@@ -38,10 +43,14 @@ namespace MemberManagement.Web.Controllers
             return View(memberResultViewModel);
         }
 
+        //View all Active members
         public async Task<IActionResult> IndexActive()
         {
-            IEnumerable<MemberActiveInactiveDTO> membersDTO = (IEnumerable<MemberActiveInactiveDTO>)await _memberService.GetAllActive();
-            List<MemberActiveInactiveViewModel> memberResultViewModel = new List<MemberActiveInactiveViewModel>();
+            var membersDTO = (IEnumerable<MemberActiveInactiveDTO>)
+                await _memberService.GetAllActive();
+            List<MemberActiveInactiveViewModel> memberResultViewModel = 
+                new List<MemberActiveInactiveViewModel>();
+
             foreach (var memberDTO in membersDTO)
             {
                 var memberViewModel = new MemberActiveInactiveViewModel()
@@ -60,11 +69,13 @@ namespace MemberManagement.Web.Controllers
             return View(memberResultViewModel);
         }
 
-        //Index page for Inactive Members
+        //View all Inactive Members
         public async Task<IActionResult> IndexInactive()
         {
-            IEnumerable<MemberActiveInactiveDTO> membersDTO = (IEnumerable<MemberActiveInactiveDTO>)await _memberService.GetAllInactive();
-            List<MemberActiveInactiveViewModel> memberResultViewModel = new List<MemberActiveInactiveViewModel>();
+            var membersDTO = (IEnumerable<MemberActiveInactiveDTO>)
+                await _memberService.GetAllInactive();
+            List<MemberActiveInactiveViewModel> memberResultViewModel = 
+                new List<MemberActiveInactiveViewModel>();
             foreach (var memberDTO in membersDTO)
             {
                 var memberViewModel = new MemberActiveInactiveViewModel()
@@ -83,18 +94,17 @@ namespace MemberManagement.Web.Controllers
             return View(memberResultViewModel);
         }
 
+        //View a specific member
         public async Task<IActionResult> Detail(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
             var memberDTO = await _memberService.DetailMember(id);
-            if (memberDTO == null)
+            //check if Member exists
+            if(memberDTO.LastName == null)
             {
-                return NotFound();
+                ModelState.AddModelError("", "The Member you're trying to access does not exist.");
+                return View();
             }
+            
             var memberViewModel = new MemberDetailViewModel()
             {
                 MemberID = memberDTO.MemberID,
@@ -111,36 +121,60 @@ namespace MemberManagement.Web.Controllers
             return View(memberViewModel);
         }
 
+
+        //Open the create member page
         public IActionResult Create()
         {
             var memberCreateViewModel = new MemberCreateViewModel();
             return View(memberCreateViewModel);
         }
 
+        //Processing of creating a member
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Member member)
         {
+            //Check if all input are valid
             if (ModelState.IsValid)
             {
-                _memberService.AddMember(member);
-                return RedirectToAction(nameof(Index));
+                var checkMember = _memberService.AddMember(member);
+                //If the member to be added is already in the list
+                //will create an error and will pass the current values
+                //in the form given by the user
+                if (checkMember == false) {
+                    ModelState.AddModelError("", "The member you are trying to add is already in the list.");
+                    var memberCreateViewModel = new MemberCreateViewModel()
+                    {
+                        LastName = member.LastName,
+                        FirstName = member.FirstName,
+                        Birthdate = member.Birthdate,
+                        Address = member.Address,
+                        Branch = member.Branch,
+                        ContactNo = member.ContactNo,
+                        Email = member.Email,
+                    };
+                    //Reopen the create page with the values entered
+                    return View(memberCreateViewModel);
+                }
+                    //else, success in creating the member will redirect to all members' page
+                    return RedirectToAction(nameof(Index));
             }
             return View(member);
         }
 
+        //Open the Edit page of a member
         public async Task<IActionResult> Edit(int id)
         {
-            if (id == null)
+            var member = await _memberService.EditMember(id);
+            //Check if a member exists
+            //If not, will create an error and open an empty Edit page
+            if (member.LastName == null)
             {
-                return NotFound();
+                ModelState.AddModelError("", "The Member you're trying to edit does not exist.");
+                return View();
             }
 
-            var member = await _memberService.EditMember(id);
-            if (member == null)
-            {
-                return NotFound();
-            }
+            //Else will continue to open the Edit page with the member's details
             var memberViewModel = new MemberEditViewModel()
             {
                 MemberID = member.MemberID,
@@ -153,8 +187,12 @@ namespace MemberManagement.Web.Controllers
                 Email = member.Email,
                 IsActive = member.IsActive,
             };
+
+            //Else return to the page of Edit with the member's details
             return View(memberViewModel);
         }
+
+        //Process on saving the edited member
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Member member)
@@ -163,6 +201,7 @@ namespace MemberManagement.Web.Controllers
             {
                 return NotFound();
             }
+            //Check for input validation
             if (ModelState.IsValid)
             {
                 await _memberService.SaveEditMember(id, member);
@@ -171,13 +210,20 @@ namespace MemberManagement.Web.Controllers
             return View(member);
         }
 
+        //Open the delete page of a member
         public async Task<IActionResult> Delete(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
             var member = await _memberService.DeleteMember(id);
+
+            //Return an empty Delete page
+            //since member does not exists
+            if (member.LastName == null)
+            {
+                ModelState.AddModelError("", "The Member you're trying to delete does not exist.");
+                return View();
+            }
+
+            //Else, will continue to open the delete page with the member's details
             var status = "";
             if (member.IsActive)
             {
@@ -202,6 +248,7 @@ namespace MemberManagement.Web.Controllers
             return View(memberViewModel);
         }
 
+        //Process to replace IsActive value to false
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

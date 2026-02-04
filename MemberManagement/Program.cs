@@ -1,15 +1,10 @@
-
-using MemberManagement.Application.Services;
-using MemberManagement.Domain.Interfaces;
-using MemberManagement.Infrastracture.Repositories;
 using MemberManagement.Web;
-using System.Collections.Generic;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddWebDI();
+builder.Services.AddWebDI(builder.Configuration);
 //builder.Services.AddScoped<MemberService>();
 //builder.Services.AddScoped<IMemberRepository, MemberRepository>();
 var app = builder.Build();

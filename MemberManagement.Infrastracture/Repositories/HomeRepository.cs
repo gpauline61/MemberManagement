@@ -15,13 +15,20 @@ namespace MemberManagement.Infrastracture.Repositories
         {
             _context = context;
         }
+
+        //Compute total count for All, Active, and Inactive Members separately
         public List<int> GetMemberCount()
         {
             List<int> counters = new List<int>();
+            //All Members
             counters.Add(_context.Members.Count());
+
+            //Active Members
             counters.Add(_context.Members
                 .Where(m => m.IsActive)
                 .Count());
+
+            //Inactive Members
             counters.Add(_context.Members
                 .Where(m => m.IsActive == false)
                 .Count());

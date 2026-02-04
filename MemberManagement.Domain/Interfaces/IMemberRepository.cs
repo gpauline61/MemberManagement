@@ -1,9 +1,7 @@
-﻿using MemberManagement.Domain.Entities;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+﻿//Interface for MemberRepository methods and functions
 
+using MemberManagement.Domain.Entities;
+using System.Collections;
 namespace MemberManagement.Domain.Interfaces
 {
     public interface IMemberRepository
@@ -17,6 +15,8 @@ namespace MemberManagement.Domain.Interfaces
         Task DeleteConfirmed(int id);
         Task<IEnumerable> GetAllActive();
         Task<IEnumerable> GetAllInactive();
+        bool checkMember(Member member);
+        bool checkMemberId(int id);
     }
 
 

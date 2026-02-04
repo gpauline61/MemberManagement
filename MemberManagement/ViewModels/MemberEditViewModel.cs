@@ -13,12 +13,12 @@ namespace MemberManagement.Web.ViewModels
         [Display(Name = "Date of Birth")]
         [DataType(DataType.Date)]
         public DateOnly Birthdate { get; set; }
-        public string Address { get; set; }
+        public string? Address { get; set; }
         public BranchCategory Branch { get; set; }
         [Display(Name = "Contact No.")]
-        public string ContactNo { get; set; }
+        public string? ContactNo { get; set; }
         [Display(Name = "Email Address")]
-        public string Email { get; set; }
+        public string? Email { get; set; }
         [Display(Name = "Active")]
         public bool IsActive { get; set; }
     }

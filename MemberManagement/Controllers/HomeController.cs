@@ -1,5 +1,4 @@
 using MemberManagement.Application.Services;
-using MemberManagement.Domain.Entities;
 using MemberManagement.Models;
 using MemberManagement.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -14,9 +13,12 @@ namespace MemberManagement.Controllers
         {
             _homeService = homeService;
         }
+
+        //Landing page after opening the application
         public IActionResult Index()
         {
             var memberCount = _homeService.GetMemberCount();
+            //concert the list to the ViewModel that will be used in the View
             var memberCountVM = new MemberCountViewModel()
             {
                 TotalMembers = memberCount[0],

@@ -1,8 +1,5 @@
-﻿using MemberManagement.Domain.Enum;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿//DTO for showing a specific member's details
+using MemberManagement.Domain.Enum;
 
 namespace MemberManagement.Application.DTO
 {

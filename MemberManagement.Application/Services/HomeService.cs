@@ -13,6 +13,9 @@ namespace MemberManagement.Application.Services
         {
             _homeRepository = homeRepository;
         }
+
+        //Computation of the total count for All,
+        //Active, and Inactive members
         public List<int> GetMemberCount()
         {
             return _homeRepository.GetMemberCount();
