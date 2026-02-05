@@ -1,5 +1,6 @@
 ﻿using MemberManagement.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace MemberManagement.Application
 {

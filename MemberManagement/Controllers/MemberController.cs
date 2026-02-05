@@ -1,17 +1,20 @@
-﻿using MemberManagement.Application.DTO;
+﻿using AutoMapper;
+using MemberManagement.Application.DTO;
 using MemberManagement.Application.Services;
-using MemberManagement.Domain.Entities;
 using MemberManagement.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Member = MemberManagement.Domain.Entities.Member;
 
 namespace MemberManagement.Web.Controllers
 {
     public class MemberController : Controller
     {
         private readonly MemberService _memberService;
-        public MemberController(MemberService memberService)
+        private readonly IMapper _mapper;
+        public MemberController(MemberService memberService, IMapper mapper)
         {
             _memberService = memberService;
+            _mapper = mapper;
         }
 
         //View all members
@@ -23,21 +26,10 @@ namespace MemberManagement.Web.Controllers
             List<MemberIndexViewModel> memberResultViewModel = 
                 new List<MemberIndexViewModel>();
 
-            //manual mapping of a DTO to ViewModel
+            //auto mapping of a DTO to ViewModel
             foreach (var memberDTO in membersDTO)
             {
-                var memberViewModel = new MemberIndexViewModel()
-                {
-                    MemberID = memberDTO.MemberID,
-                    LastName = memberDTO.LastName,
-                    FirstName = memberDTO.FirstName,
-                    Birthdate = memberDTO.Birthdate,
-                    Address = memberDTO.Address,
-                    Branch = memberDTO.Branch,
-                    ContactNo = memberDTO.ContactNo,
-                    Email = memberDTO.Email,
-                    IsActive = memberDTO.IsActive,
-                };
+                var memberViewModel = _mapper.Map<MemberIndexViewModel>(memberDTO);
                 memberResultViewModel.Add(memberViewModel);
             }
             return View(memberResultViewModel);
@@ -53,17 +45,7 @@ namespace MemberManagement.Web.Controllers
 
             foreach (var memberDTO in membersDTO)
             {
-                var memberViewModel = new MemberActiveInactiveViewModel()
-                {
-                    MemberID = memberDTO.MemberID,
-                    LastName = memberDTO.LastName,
-                    FirstName = memberDTO.FirstName,
-                    Birthdate = memberDTO.Birthdate,
-                    Address = memberDTO.Address,
-                    Branch = memberDTO.Branch,
-                    ContactNo = memberDTO.ContactNo,
-                    Email = memberDTO.Email,
-                };
+                var memberViewModel = _mapper.Map<MemberActiveInactiveViewModel>(memberDTO);
                 memberResultViewModel.Add(memberViewModel);
             }
             return View(memberResultViewModel);
@@ -78,17 +60,7 @@ namespace MemberManagement.Web.Controllers
                 new List<MemberActiveInactiveViewModel>();
             foreach (var memberDTO in membersDTO)
             {
-                var memberViewModel = new MemberActiveInactiveViewModel()
-                {
-                    MemberID = memberDTO.MemberID,
-                    LastName = memberDTO.LastName,
-                    FirstName = memberDTO.FirstName,
-                    Birthdate = memberDTO.Birthdate,
-                    Address = memberDTO.Address,
-                    Branch = memberDTO.Branch,
-                    ContactNo = memberDTO.ContactNo,
-                    Email = memberDTO.Email,
-                };
+                var memberViewModel = _mapper.Map<MemberActiveInactiveViewModel>(memberDTO);
                 memberResultViewModel.Add(memberViewModel);
             }
             return View(memberResultViewModel);
@@ -104,20 +76,8 @@ namespace MemberManagement.Web.Controllers
                 ModelState.AddModelError("", "The Member you're trying to access does not exist.");
                 return View();
             }
-            
-            var memberViewModel = new MemberDetailViewModel()
-            {
-                MemberID = memberDTO.MemberID,
-                LastName = memberDTO.LastName,
-                FirstName = memberDTO.FirstName,
-                Birthdate = memberDTO.Birthdate,
-                Address = memberDTO.Address,
-                Branch = memberDTO.Branch,
-                ContactNo = memberDTO.ContactNo,
-                Email = memberDTO.Email,
-                IsActive = memberDTO.IsActive,
-            };
-            
+            var memberViewModel = _mapper.Map<MemberDetailDeleteViewModel>(memberDTO);
+            memberViewModel.IsActive = memberDTO.IsActive ? "YES" : "NO";
             return View(memberViewModel);
         }
 
@@ -143,16 +103,9 @@ namespace MemberManagement.Web.Controllers
                 //in the form given by the user
                 if (checkMember == false) {
                     ModelState.AddModelError("", "The member you are trying to add is already in the list.");
-                    var memberCreateViewModel = new MemberCreateViewModel()
-                    {
-                        LastName = member.LastName,
-                        FirstName = member.FirstName,
-                        Birthdate = member.Birthdate,
-                        Address = member.Address,
-                        Branch = member.Branch,
-                        ContactNo = member.ContactNo,
-                        Email = member.Email,
-                    };
+                    
+                    var memberCreateViewModel = _mapper.Map<MemberCreateViewModel>(member);
+                    
                     //Reopen the create page with the values entered
                     return View(memberCreateViewModel);
                 }
@@ -165,28 +118,17 @@ namespace MemberManagement.Web.Controllers
         //Open the Edit page of a member
         public async Task<IActionResult> Edit(int id)
         {
-            var member = await _memberService.EditMember(id);
+            var memberDTO = await _memberService.EditMember(id);
             //Check if a member exists
             //If not, will create an error and open an empty Edit page
-            if (member.LastName == null)
+            if (memberDTO.LastName == null)
             {
                 ModelState.AddModelError("", "The Member you're trying to edit does not exist.");
                 return View();
             }
 
             //Else will continue to open the Edit page with the member's details
-            var memberViewModel = new MemberEditViewModel()
-            {
-                MemberID = member.MemberID,
-                LastName = member.LastName,
-                FirstName = member.FirstName,
-                Birthdate = member.Birthdate,
-                Address = member.Address,
-                Branch = member.Branch,
-                ContactNo = member.ContactNo,
-                Email = member.Email,
-                IsActive = member.IsActive,
-            };
+            var memberViewModel = _mapper.Map<MemberEditViewModel>(memberDTO);
 
             //Else return to the page of Edit with the member's details
             return View(memberViewModel);
@@ -213,38 +155,20 @@ namespace MemberManagement.Web.Controllers
         //Open the delete page of a member
         public async Task<IActionResult> Delete(int id)
         {
-            var member = await _memberService.DeleteMember(id);
+            var memberDTO = await _memberService.DeleteMember(id);
 
             //Return an empty Delete page
             //since member does not exists
-            if (member.LastName == null)
+            if (memberDTO.LastName == null)
             {
                 ModelState.AddModelError("", "The Member you're trying to delete does not exist.");
                 return View();
             }
 
             //Else, will continue to open the delete page with the member's details
-            var status = "";
-            if (member.IsActive)
-            {
-                status = "YES";
-            }
-            else
-            {
-                status = "NO";
-            }
-                var memberViewModel = new MemberDetailViewModel()
-                {
-                    MemberID = member.MemberID,
-                    LastName = member.LastName,
-                    FirstName = member.FirstName,
-                    Birthdate = member.Birthdate,
-                    Address = member.Address,
-                    Branch = member.Branch,
-                    ContactNo = member.ContactNo,
-                    Email = member.Email,
-                    IsActive = status,
-                };
+            var memberViewModel = _mapper.Map<MemberDetailDeleteViewModel>(memberDTO);
+            memberViewModel.IsActive = memberDTO.IsActive ? "YES" : "NO";
+
             return View(memberViewModel);
         }
 

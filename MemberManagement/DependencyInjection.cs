@@ -1,6 +1,7 @@
 ﻿using MemberManagement.Application;
 using MemberManagement.Domain;
 using MemberManagement.Infrastracture;
+using System.Reflection;
 
 namespace MemberManagement.Web
 {
@@ -14,6 +15,7 @@ namespace MemberManagement.Web
             //services included to each layer
             services.AddApplicationDI()
                 .AddInfrastractureDI(configuration).AddDomainDI();
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;
         }
     }

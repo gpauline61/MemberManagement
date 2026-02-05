@@ -1,90 +1,57 @@
-﻿using MemberManagement.Application.DTO;
-using MemberManagement.Domain.Entities;
+﻿using AutoMapper;
+using MemberManagement.Application.DTO;
 using MemberManagement.Domain.Interfaces;
 using System.Collections;
+using Member = MemberManagement.Domain.Entities.Member;
 
 namespace MemberManagement.Application.Services
 {
     public class MemberService
     {
         private readonly IMemberRepository _memberRepository;
+        private readonly IMapper _mapper;
 
-        public MemberService(IMemberRepository memberRepository)
+        public MemberService(IMemberRepository memberRepository, IMapper mapper)
         {
             _memberRepository = memberRepository;
+            _mapper = mapper;
         }
 
         //Get all Members
         public async Task<IEnumerable> GetAll()
         {
-            var status = "";
-            IEnumerable<Member> membersDTO = (IEnumerable<Member>)await _memberRepository.GetAll();
+            
+            var members = (IEnumerable<Member>)await _memberRepository.GetAll();
 
-            List<MemberIndexDTO> memresDTO = new List<MemberIndexDTO>();
-            foreach (var member in membersDTO)
+            List<MemberIndexDTO> membersDTO = new List<MemberIndexDTO>();
+            foreach (var member in members)
             {
-                if (member.IsActive)
-                {
-                    status = "YES";
-                }
-                else
-                {
-                    status = "NO";
-                }
-
                 //convert to a DTO before transfering back to the Controller
-                var memberDTO = new MemberIndexDTO()
-                {
-                    MemberID = member.MemberID,
-                    LastName = member.LastName,
-                    FirstName = member.FirstName,
-                    Birthdate = member.Birthdate,
-                    Address = member.Address,
-                    Branch = member.Branch,
-                    ContactNo = member.ContactNo,
-                    Email = member.Email,
-                    IsActive = status,
-                };
-                memresDTO.Add(memberDTO);
+                var memberDTO = _mapper.Map<MemberIndexDTO>(member);
+                memberDTO.IsActive = member.IsActive ? "YES" : "NO";
+                membersDTO.Add(memberDTO);
             }
-            return memresDTO; 
+            return membersDTO; 
         }
 
         //Get Member's details
-        public async Task<MemberIndexDTO> DetailMember(int id)
+        public async Task<MemberDetailDTO> DetailMember(int id)
         {
             var status = "";
             //check if the members to show details exist in the list
             //If id does not exist, return an empty DTO
             if (_memberRepository.checkMemberId(id))
             {
-                var memberBlank = new MemberIndexDTO();
+                var memberBlank = new MemberDetailDTO();
                 return memberBlank;
             }
 
             //if Member exists
             //Get the member's details from the repository
             var member = await _memberRepository.DetailMember(id);
-            if (member.IsActive)
-            {
-                status = "YES";
-            }
-            else
-            {
-                status = "NO";
-            }
 
             //Convert Member Entity to its DTO counterpart
-            var memberDTO = new MemberIndexDTO(){
-                MemberID = member.MemberID,
-                LastName = member.LastName,
-                FirstName = member.FirstName,
-                Birthdate = member.Birthdate,
-                Address = member.Address,
-                Branch = member.Branch,
-                ContactNo = member.ContactNo,
-                IsActive = status,
-            };
+            var memberDTO = _mapper.Map<MemberDetailDTO>(member);
             return memberDTO;
         }
 
@@ -105,18 +72,20 @@ namespace MemberManagement.Application.Services
         }
 
         //Edit a member
-        public async Task<Member> EditMember(int id)
+        public async Task<MemberEditDTO> EditMember(int id)
         {
             //Check if member to edit exists
             //If not, will return an empty Member entity
             if (_memberRepository.checkMemberId(id))
             {
-                var memberBlank = new Member();
+                var memberBlank = new MemberEditDTO();
                 return memberBlank;
             }
 
             //else, will proceed to get details of the member to be edited
-            return await _memberRepository.EditMember(id);
+            var member = await _memberRepository.EditMember(id);
+            var memberDTO = _mapper.Map<MemberEditDTO>(member);
+            return memberDTO;
         }
 
         //Saving the edit form of a member after submitting the form
@@ -126,18 +95,20 @@ namespace MemberManagement.Application.Services
         }
 
         //Soft deleting a member
-        public async Task<Member> DeleteMember(int id)
+        public async Task<MemberDetailDTO> DeleteMember(int id)
         {
             //Check if member to delete exists
             //If non existent, will return a blank Member entity
             if (_memberRepository.checkMemberId(id))
             {
-                var memberBlank = new Member();
+                var memberBlank = new MemberDetailDTO();
                 return memberBlank;
             }
 
             //Else, if member exists, will proceed in soft deleting the member
-            return await _memberRepository.DeleteMember(id);
+            var member = await _memberRepository.DeleteMember(id);
+            var memberDTO = _mapper.Map<MemberDetailDTO>(member);
+            return memberDTO;
 
         }
 
@@ -150,51 +121,34 @@ namespace MemberManagement.Application.Services
         //Getting all Active Members (IsActive == True)
         public async Task<IEnumerable> GetAllActive()
         {
-            var membersDTO = (IEnumerable<Member>)await _memberRepository.GetAllActive();
-            List<MemberActiveInactiveDTO> memresDTO = new List<MemberActiveInactiveDTO>();
+            var members = (IEnumerable<Member>)await _memberRepository.GetAllActive();
+            List<MemberActiveInactiveDTO> membersDTO = new List<MemberActiveInactiveDTO>();
             
             //convert each found member to a DTO
-            foreach (var member in membersDTO)
+            foreach (var member in members)
             {
-                var memberDTO = new MemberActiveInactiveDTO()
-                {
-                    MemberID = member.MemberID,
-                    LastName = member.LastName,
-                    FirstName = member.FirstName,
-                    Birthdate = member.Birthdate,
-                    Address = member.Address,
-                    Branch = member.Branch,
-                    ContactNo = member.ContactNo,
-                    Email = member.Email,
-                };
-                memresDTO.Add(memberDTO);
+                var memberDTO = _mapper.Map<MemberActiveInactiveDTO>(member);
+                membersDTO.Add(memberDTO);
+
             }
-            return memresDTO;
+            return membersDTO;
         }
 
         //Getting all Inactive Members (IsActive == False)
         public async Task<IEnumerable> GetAllInactive()
         {
-            var membersDTO = (IEnumerable<Member>)await _memberRepository.GetAllInactive();
-            List<MemberActiveInactiveDTO> memresDTO = new List<MemberActiveInactiveDTO>();
+            var members = (IEnumerable<Member>)await _memberRepository.GetAllInactive();
+            List<MemberActiveInactiveDTO> membersDTO = new List<MemberActiveInactiveDTO>();
 
             //convert each found member to a DTO
-            foreach (var member in membersDTO)
+            foreach (var member in members)
             {
-                var memberDTO = new MemberActiveInactiveDTO()
-                {
-                    MemberID = member.MemberID,
-                    LastName = member.LastName,
-                    FirstName = member.FirstName,
-                    Birthdate = member.Birthdate,
-                    Address = member.Address,
-                    Branch = member.Branch,
-                    ContactNo = member.ContactNo,
-                    Email = member.Email,
-                };
-                memresDTO.Add(memberDTO);
+                var memberDTO = _mapper.Map<MemberActiveInactiveDTO>(member);
+                membersDTO.Add(memberDTO);
             }
-            return memresDTO;
+            return membersDTO;
         }
+
+
     }
 }

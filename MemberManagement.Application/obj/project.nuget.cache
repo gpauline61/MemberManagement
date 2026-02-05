@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "o9m4nr4iaeI=",
+  "dgSpecHash": "tecAqsXvE0M=",
   "success": true,
   "projectFilePath": "C:\\Users\\ARDCI\\source\\repos\\MemberManagement\\MemberManagement.Application\\MemberManagement.Application.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ARDCI\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.2\\microsoft.extensions.dependencyinjection.abstractions.10.0.2.nupkg.sha512"
+    "C:\\Users\\ARDCI\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\ARDCI\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "C:\\Users\\ARDCI\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.2\\microsoft.extensions.dependencyinjection.abstractions.10.0.2.nupkg.sha512",
+    "C:\\Users\\ARDCI\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\ARDCI\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

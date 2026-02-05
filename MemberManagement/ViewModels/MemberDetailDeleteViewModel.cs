@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MemberManagement.Web.ViewModels
 {
-    public class MemberDetailViewModel
+    public class MemberDetailDeleteViewModel
     {
         public int MemberID { get; set; }
         [Display(Name = "Last Name")]
@@ -18,7 +18,7 @@ namespace MemberManagement.Web.ViewModels
         public string ContactNo { get; set; }
         [Display(Name = "Email Address")]
         public string Email { get; set; }
-        [Display(Name = "Active")]
+        [Display(Name = "Active Status")]
         public string IsActive { get; set; }
     }
 }

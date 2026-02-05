@@ -1,5 +1,4 @@
-﻿using MemberManagement.Application.DTO;
-using MemberManagement.Domain.Entities;
+﻿using MemberManagement.Domain.Entities;
 using MemberManagement.Domain.Interfaces;
 using MemberManagement.Infrastracture.Data;
 using Microsoft.EntityFrameworkCore;
@@ -164,11 +163,8 @@ namespace MemberManagement.Infrastracture.Repositories
             var member = _context.Members
                 .Where(m => m.MemberID == id)
                 .FirstOrDefault();
-            //member not found
-            if (member == null)
-            {
-                return true;
-            }return false;
+
+            return member == null ? true : false;
         }
 
         //Method to invoke changes to DbContext and Db
