@@ -9,5 +9,4 @@ namespace MemberManagement.Domain
             return services;
         }
     }
-
 }

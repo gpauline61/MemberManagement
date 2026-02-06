@@ -1,8 +1,4 @@
 ﻿using MemberManagement.Domain.Interfaces;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MemberManagement.Application.Services
 {

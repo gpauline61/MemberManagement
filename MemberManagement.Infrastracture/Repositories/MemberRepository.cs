@@ -44,16 +44,7 @@ namespace MemberManagement.Infrastracture.Repositories
             var member = await GetIdAsync(id);
 
             //if found, return the details of the member
-            if (member != null)
-            {
-
-                return member;
-            }
-            else
-            {
-                return null;
-            }
-
+            return member != null ? member : null;
         }
 
         //Get the details of the member to be edited
@@ -62,38 +53,13 @@ namespace MemberManagement.Infrastracture.Repositories
             var member = await GetIdAsync(id);
 
             //If member is found, return the details of the member
-            if (member != null)
-            {
-                return member;
-            }
-            else
-            {
-                return null;
-            }
+            return member != null ? member : null;
         }
 
         //Save the details of the member that was edited
         public async Task SaveEditMember(int id, Member member)
         {
-            //Retrieve the member to be edited
-            var mem = await GetIdAsync(id);
-
-            //If member exixts
-            //replace member's current values to the given values from the form
-            if (mem != null)
-            {
-                mem.LastName = member.LastName;
-                mem.FirstName = member.FirstName;
-                mem.Birthdate = member.Birthdate;
-                mem.Address = member.Address;
-                mem.Branch = member.Branch;
-                mem.ContactNo = member.ContactNo;
-                mem.Email = member.Email;
-                mem.IsActive = member.IsActive;
-
-                //call a local method to update and save changes
-                Update(mem);
-            }
+           Update(member);
         }
 
         //get the member's details to be deleted
@@ -110,7 +76,6 @@ namespace MemberManagement.Infrastracture.Repositories
             {
                 Delete(member);
             }
-
         }
         
         //Get all Active members (IsActive == true)
@@ -136,25 +101,14 @@ namespace MemberManagement.Infrastracture.Repositories
         //Check if Last name, first name, and birthdate is already in the list
         //If all three exists, adding the new member will not proceed
         public bool checkMember(Member member) 
-        { 
-            var lastname =  _context.Members
-                .Where(ln => ln.LastName == member.LastName)
-                .FirstOrDefault();
-            var firstname =  _context.Members
-                .Where(fn => fn.FirstName ==  member.FirstName)
-                .FirstOrDefault();
-            var birthdate =  _context.Members
-                .Where(bd => bd.Birthdate == member.Birthdate)
+        {
+            var checkmem = _context.Members
+                .Where(m => m.LastName == member.LastName
+                && m.FirstName == member.FirstName
+                && m.Birthdate == member.Birthdate)
                 .FirstOrDefault();
 
-            if(lastname != null && firstname != null && birthdate != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return checkmem != null ? true : false;
         }
         
         //Check for the Member if in the list
@@ -178,7 +132,6 @@ namespace MemberManagement.Infrastracture.Repositories
         public async Task<Member> GetIdAsync(int id)
         {
             var member = await _context.Members.FirstAsync(m => m.MemberID == id);
-
             return member;
         }
 
@@ -192,7 +145,6 @@ namespace MemberManagement.Infrastracture.Repositories
         //Method to perform soft delete to a member
         public bool Delete(Member member)
         {
-
             member.IsActive = false;
             Update(member);
             return Save();

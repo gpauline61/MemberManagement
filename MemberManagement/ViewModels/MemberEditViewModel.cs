@@ -16,6 +16,7 @@ namespace MemberManagement.Web.ViewModels
         public string? Address { get; set; }
         public BranchCategory Branch { get; set; }
         [Display(Name = "Contact No.")]
+        [RegularExpression(@"^\+639([0-9]{9})$", ErrorMessage = "Invalid input. +639xxxxxxxxx")]
         public string? ContactNo { get; set; }
         [Display(Name = "Email Address")]
         public string? Email { get; set; }

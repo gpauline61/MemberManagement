@@ -1,7 +1,5 @@
 ﻿//Member Entity
-
 using MemberManagement.Domain.Enum;
-using System.ComponentModel.DataAnnotations;
 
 namespace MemberManagement.Domain.Entities
 {

@@ -1,5 +1,4 @@
 ﻿//Enum to list all current Branches
-
 using System.ComponentModel.DataAnnotations;
 
 namespace MemberManagement.Domain.Enum

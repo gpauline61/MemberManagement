@@ -20,7 +20,6 @@ namespace MemberManagement.Application.Services
         //Get all Members
         public async Task<IEnumerable> GetAll()
         {
-            
             var members = (IEnumerable<Member>)await _memberRepository.GetAll();
 
             List<MemberIndexDTO> membersDTO = new List<MemberIndexDTO>();
@@ -66,9 +65,8 @@ namespace MemberManagement.Application.Services
             {
                 return false;
             }
-
-                //else will continue to save the new member
-                return _memberRepository.Add(member);
+            //else will continue to save the new member
+            return _memberRepository.Add(member);
         }
 
         //Edit a member
@@ -91,7 +89,7 @@ namespace MemberManagement.Application.Services
         //Saving the edit form of a member after submitting the form
         public async Task SaveEditMember(int id, Member member)
         {
-            await _memberRepository.SaveEditMember(id, member);
+            _memberRepository.Update(member);
         }
 
         //Soft deleting a member
@@ -108,8 +106,7 @@ namespace MemberManagement.Application.Services
             //Else, if member exists, will proceed in soft deleting the member
             var member = await _memberRepository.DeleteMember(id);
             var memberDTO = _mapper.Map<MemberDetailDTO>(member);
-            return memberDTO;
-
+            return memberDTO;  
         }
 
         //Process in deleting the found member
@@ -129,7 +126,6 @@ namespace MemberManagement.Application.Services
             {
                 var memberDTO = _mapper.Map<MemberActiveInactiveDTO>(member);
                 membersDTO.Add(memberDTO);
-
             }
             return membersDTO;
         }
@@ -148,7 +144,5 @@ namespace MemberManagement.Application.Services
             }
             return membersDTO;
         }
-
-
     }
 }
