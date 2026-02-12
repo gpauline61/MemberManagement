@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MemberManagement.Application.DTO;
+using MemberManagement.Application.Interface;
 using MemberManagement.Application.Services;
 using MemberManagement.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -9,7 +10,7 @@ namespace MemberManagement.Web.Controllers
 {
     public class MemberController : Controller
     {
-        private readonly MemberService _memberService;
+        private readonly IMemberService _memberService;
         private readonly IMapper _mapper;
         public MemberController(MemberService memberService, IMapper mapper)
         {
@@ -177,10 +178,6 @@ namespace MemberManagement.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
             await _memberService.DeleteConfirmed(id);
             return RedirectToAction(nameof(Index));
         }

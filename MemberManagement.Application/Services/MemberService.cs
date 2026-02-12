@@ -1,12 +1,13 @@
 ﻿using AutoMapper;
 using MemberManagement.Application.DTO;
+using MemberManagement.Application.Interface;
 using MemberManagement.Domain.Interfaces;
 using System.Collections;
 using Member = MemberManagement.Domain.Entities.Member;
 
 namespace MemberManagement.Application.Services
 {
-    public class MemberService
+    public class MemberService : IMemberService
     {
         private readonly IMemberRepository _memberRepository;
         private readonly IMapper _mapper;
@@ -36,7 +37,6 @@ namespace MemberManagement.Application.Services
         //Get Member's details
         public async Task<MemberDetailDTO> DetailMember(int id)
         {
-            var status = "";
             //check if the members to show details exist in the list
             //If id does not exist, return an empty DTO
             if (_memberRepository.checkMemberId(id))
