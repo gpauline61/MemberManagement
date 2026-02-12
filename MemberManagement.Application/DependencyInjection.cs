@@ -12,7 +12,6 @@ namespace MemberManagement.Application
             services.AddScoped<IMemberService, MemberService>();
             services.AddScoped<HomeService>();
             services.AddScoped<IBranchService, BranchService>();
-            services.AddScoped<IMembershipTypeService, MembershipTypeService>();
             return services;
         }
     }
