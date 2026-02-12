@@ -1,4 +1,5 @@
-﻿using MemberManagement.Application.Services;
+﻿using MemberManagement.Application.Interface;
+using MemberManagement.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace MemberManagement.Application
@@ -8,8 +9,10 @@ namespace MemberManagement.Application
         public static IServiceCollection AddApplicationDI(this IServiceCollection services)
         { 
             //Add Service classes to service collection
-            services.AddScoped<MemberService>();
+            services.AddScoped<IMemberService, MemberService>();
             services.AddScoped<HomeService>();
+            services.AddScoped<IBranchService, BranchService>();
+            services.AddScoped<IMembershipTypeService, MembershipTypeService>();
             return services;
         }
     }

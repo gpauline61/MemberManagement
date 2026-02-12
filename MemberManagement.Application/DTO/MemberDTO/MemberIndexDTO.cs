@@ -1,8 +1,9 @@
-﻿using MemberManagement.Domain.Enum;
+﻿//DTO for listing all members
+using MemberManagement.Domain.Enum;
 
-namespace MemberManagement.Application.DTO
+namespace MemberManagement.Application.DTO.MemberDTO
 {
-    public class MemberEditDTO
+    public class MemberIndexDTO
     {
         public int MemberID { get; set; }
         public string LastName { get; set; }
@@ -12,6 +13,6 @@ namespace MemberManagement.Application.DTO
         public BranchCategory Branch { get; set; }
         public string? ContactNo { get; set; }
         public string? Email { get; set; }
-        public bool IsActive { get; set; }
+        public string IsActive { get; set; }
     }
 }
