@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using MemberManagement.Application.DTO;
+using MemberManagement.Application.DTO.MemberDTO;
 using MemberManagement.Application.Interface;
 using MemberManagement.Domain.Interfaces;
 using System.Collections;

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using MemberManagement.Application.DTO;
+using MemberManagement.Application.DTO.MemberDTO;
 using MemberManagement.Domain.Entities;
-using MemberManagement.Web.ViewModels;
+using MemberManagement.Web.ViewModels.MemberViewModel;
 
 namespace MemberManagement.Web.Mapper
 {

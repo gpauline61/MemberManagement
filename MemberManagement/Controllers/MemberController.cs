@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using MemberManagement.Application.DTO;
+using MemberManagement.Application.DTO.MemberDTO;
 using MemberManagement.Application.Interface;
 using MemberManagement.Application.Services;
-using MemberManagement.Web.ViewModels;
+using MemberManagement.Web.ViewModels.MemberViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Member = MemberManagement.Domain.Entities.Member;
 

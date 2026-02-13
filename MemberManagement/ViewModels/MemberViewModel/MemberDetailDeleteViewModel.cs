@@ -1,9 +1,9 @@
 ﻿using MemberManagement.Domain.Enum;
 using System.ComponentModel.DataAnnotations;
 
-namespace MemberManagement.Web.ViewModels
+namespace MemberManagement.Web.ViewModels.MemberViewModel
 {
-    public class MemberIndexViewModel
+    public class MemberDetailDeleteViewModel
     {
         public int MemberID { get; set; }
         [Display(Name = "Last Name")]

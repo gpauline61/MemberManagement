@@ -1,4 +1,4 @@
-﻿namespace MemberManagement.Web.ViewModels
+﻿namespace MemberManagement.Web.ViewModels.MemberViewModel
 {
     public class MemberCountViewModel
     {
