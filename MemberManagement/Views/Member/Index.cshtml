@@ -1,7 +1,8 @@
-﻿@using MemberManagement.Web.ViewModels
-@using MemberManagement.Web.ViewModels.Member
-@using MemberManagement.Web.ViewModels.MemberViewModel
-Data["Title"] = "Index";
+﻿@using MemberManagement.Web.ViewModels.MemberVM
+@model List<MemberIndexViewModel>
+
+@{
+    ViewData["Title"] = "Index";
     int counter = 1;
 }
 
