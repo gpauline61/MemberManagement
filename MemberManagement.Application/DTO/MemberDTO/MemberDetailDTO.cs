@@ -1,11 +1,11 @@
-﻿//DTO for creating a new member
-
+﻿//DTO for showing a specific member's details
 using MemberManagement.Domain.Enum;
 
-namespace MemberManagement.Application.DTO
+namespace MemberManagement.Application.DTO.MemberDTO
 {
-    public class MemberCreateDTO
+    public class MemberDetailDTO
     {
+        public int MemberID { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public DateOnly Birthdate { get; set; }
@@ -13,5 +13,6 @@ namespace MemberManagement.Application.DTO
         public BranchCategory Branch { get; set; }
         public string? ContactNo { get; set; }
         public string? Email { get; set; }
+        public bool IsActive { get; set; }
     }
 }

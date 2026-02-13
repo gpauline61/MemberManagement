@@ -11,6 +11,7 @@ namespace MemberManagement.Infrastracture.Data
             
         }
         public DbSet<Member> Members { get; set; }
+        public DbSet<Membership> Memberships { get; set; }
     }
     
 }

@@ -1,10 +1,8 @@
-﻿//DTO for Active and Inactive pages of members
+﻿using MemberManagement.Domain.Enum;
 
-using MemberManagement.Domain.Enum;
-
-namespace MemberManagement.Application.DTO
+namespace MemberManagement.Application.DTO.MemberDTO
 {
-    public class MemberActiveInactiveDTO
+    public class MemberEditDTO
     {
         public int MemberID { get; set; }
         public string LastName { get; set; }
@@ -14,5 +12,6 @@ namespace MemberManagement.Application.DTO
         public BranchCategory Branch { get; set; }
         public string? ContactNo { get; set; }
         public string? Email { get; set; }
+        public bool IsActive { get; set; }
     }
 }

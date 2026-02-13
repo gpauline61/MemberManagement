@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
-using MemberManagement.Application.DTO;
+using MemberManagement.Application.DTO.MemberDTO;
+using MemberManagement.Application.DTO.MembershipDTO;
 using MemberManagement.Domain.Entities;
-using MemberManagement.Web.ViewModels;
+using MemberManagement.Web.ViewModels.MembershipVM;
+using MemberManagement.Web.ViewModels.MemberVM;
 
 namespace MemberManagement.Web.Mapper
 {
@@ -29,6 +31,13 @@ namespace MemberManagement.Web.Mapper
             CreateMap<Member, MemberCreateViewModel>();
             CreateMap<MemberEditDTO, MemberEditViewModel>();
 
+            CreateMap<Membership, MembershipIndexDTO>();
+            CreateMap<MembershipIndexDTO, MembershipIndexViewModel>();
+            CreateMap<MembershipDetailDTO, MembershipDetailViewModel>();
+            CreateMap<Membership, MembershipDetailDTO>();
+            CreateMap<Membership, MembershipDetailViewModel>();
+            CreateMap<MembershipEditDTO, MembershipEditViewModel>();
+            CreateMap<Membership, MembershipEditDTO>();
         }
     }
 }
