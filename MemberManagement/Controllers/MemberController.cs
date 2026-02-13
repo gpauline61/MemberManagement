@@ -3,7 +3,7 @@ using MemberManagement.Application.DTO.MemberDTO;
 using MemberManagement.Application.Interface;
 using MemberManagement.Application.Services;
 using MemberManagement.Web.ViewModels;
-using MemberManagement.Web.ViewModels.Member;
+using MemberManagement.Web.ViewModels.MemberVM;
 using Microsoft.AspNetCore.Mvc;
 using Member = MemberManagement.Domain.Entities.Member;
 

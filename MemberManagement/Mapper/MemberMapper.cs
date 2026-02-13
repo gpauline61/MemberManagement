@@ -3,8 +3,8 @@ using MemberManagement.Application.DTO.BranchDTO;
 using MemberManagement.Application.DTO.MemberDTO;
 using MemberManagement.Domain.Entities;
 using MemberManagement.Web.ViewModels;
-using MemberManagement.Web.ViewModels.Branch;
-using MemberManagement.Web.ViewModels.Member;
+using MemberManagement.Web.ViewModels.BranchVM;
+using MemberManagement.Web.ViewModels.MemberVM;
 
 namespace MemberManagement.Web.Mapper
 {

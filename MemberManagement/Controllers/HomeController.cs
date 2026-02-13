@@ -1,6 +1,6 @@
 using MemberManagement.Application.Services;
 using MemberManagement.Models;
-using MemberManagement.Web.ViewModels.Member;
+using MemberManagement.Web.ViewModels.MemberVM;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 

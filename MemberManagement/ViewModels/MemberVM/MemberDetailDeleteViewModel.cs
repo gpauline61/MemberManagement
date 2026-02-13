@@ -1,9 +1,9 @@
 ﻿using MemberManagement.Domain.Enum;
 using System.ComponentModel.DataAnnotations;
 
-namespace MemberManagement.Web.ViewModels
+namespace MemberManagement.Web.ViewModels.MemberVM
 {
-    public class MemberActiveInactiveViewModel
+    public class MemberDetailDeleteViewModel
     {
         public int MemberID { get; set; }
         [Display(Name = "Last Name")]
@@ -18,5 +18,7 @@ namespace MemberManagement.Web.ViewModels
         public string ContactNo { get; set; }
         [Display(Name = "Email Address")]
         public string Email { get; set; }
+        [Display(Name = "Active Status")]
+        public string IsActive { get; set; }
     }
 }

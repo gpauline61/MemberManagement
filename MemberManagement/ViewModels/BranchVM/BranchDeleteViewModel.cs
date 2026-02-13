@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MemberManagement.Web.ViewModels.Branch
+namespace MemberManagement.Web.ViewModels.BranchVM
 {
-    public class BranchIndexViewModel
+    public class BranchDeleteViewModel
     {
         public int BranchID { get; set; }
         [Display(Name = "Branch")]

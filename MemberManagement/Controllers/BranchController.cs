@@ -3,8 +3,8 @@ using MemberManagement.Application.DTO.BranchDTO;
 using MemberManagement.Application.Interface;
 using MemberManagement.Application.Services;
 using MemberManagement.Domain.Entities;
-using MemberManagement.Web.ViewModels.Branch;
-using MemberManagement.Web.ViewModels.Member;
+using MemberManagement.Web.ViewModels.BranchVM;
+using MemberManagement.Web.ViewModels.MemberVM;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MemberManagement.Web.Controllers

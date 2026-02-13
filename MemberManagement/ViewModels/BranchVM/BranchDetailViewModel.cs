@@ -1,16 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MemberManagement.Web.ViewModels.Branch
+namespace MemberManagement.Web.ViewModels.BranchVM
 {
-    public class BranchEditViewModel
+    public class BranchDetailViewModel
     {
         public int BranchID { get; set; }
-
-        [Required(ErrorMessage = "Branch name is required.")]
         [Display(Name = "Branch")]
         public string BranchName { get; set; }
-
-        [Required(ErrorMessage = "Branch Address is required.")]
         [Display(Name = "Address")]
         public string BranchAddress { get; set; }
     }

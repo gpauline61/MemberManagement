@@ -1,7 +1,7 @@
 ﻿using MemberManagement.Domain.Enum;
 using System.ComponentModel.DataAnnotations;
 
-namespace MemberManagement.Web.ViewModels.Member
+namespace MemberManagement.Web.ViewModels.MemberVM
 {
     public class MemberIndexViewModel
     {
