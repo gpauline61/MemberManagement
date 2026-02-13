@@ -3,6 +3,7 @@ using MemberManagement.Application.DTO.MemberDTO;
 using MemberManagement.Application.Interface;
 using MemberManagement.Application.Services;
 using MemberManagement.Web.ViewModels;
+using MemberManagement.Web.ViewModels.Member;
 using Microsoft.AspNetCore.Mvc;
 using Member = MemberManagement.Domain.Entities.Member;
 
@@ -12,7 +13,7 @@ namespace MemberManagement.Web.Controllers
     {
         private readonly IMemberService _memberService;
         private readonly IMapper _mapper;
-        public MemberController(MemberService memberService, IMapper mapper)
+        public MemberController(IMemberService memberService, IMapper mapper)
         {
             _memberService = memberService;
             _mapper = mapper;

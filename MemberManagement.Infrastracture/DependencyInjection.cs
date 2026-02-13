@@ -21,6 +21,7 @@ namespace MemberManagement.Infrastracture
             //Add the Interfaces and its Repository to service collection for building
             services.AddScoped<IMemberRepository, MemberRepository>();
             services.AddScoped<IHomeRepository, HomeRepository>();
+            services.AddScoped<IBranchRepository, BranchRepository>();
             return services;
         }
     }

@@ -15,6 +15,5 @@ namespace MemberManagement.Application.Interface
         Task DeleteConfirmed(int id);
         Task<IEnumerable> GetAllActive();
         Task<IEnumerable> GetAllInactive();
-
     }
 }

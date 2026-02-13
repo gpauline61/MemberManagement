@@ -14,9 +14,5 @@
     <ProjectReference Include="..\MemberManagement.Domain\MemberManagement.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DTO\BranchDTO\" />
-  </ItemGroup>
-
 
 </Project>

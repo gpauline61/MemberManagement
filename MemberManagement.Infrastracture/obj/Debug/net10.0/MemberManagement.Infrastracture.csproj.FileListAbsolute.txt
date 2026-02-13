@@ -1,3 +1,9 @@
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Infrastracture\obj\Debug\net10.0\MemberManagement.Infrastracture.csproj.AssemblyReference.cache
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Infrastracture\obj\Debug\net10.0\MemberManagement.Infrastracture.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Infrastracture\obj\Debug\net10.0\MemberManagement.Infrastracture.AssemblyInfoInputs.cache
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Infrastracture\obj\Debug\net10.0\MemberManagement.Infrastracture.AssemblyInfo.cs
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Infrastracture\obj\Debug\net10.0\MemberManagement.Infrastracture.csproj.CoreCompileInputs.cache
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Infrastracture\obj\Debug\net10.0\MemberManagement.Infrastracture.sourcelink.json
 C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Infrastracture\bin\Debug\net10.0\MemberManagement.Infrastracture.deps.json
 C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Infrastracture\bin\Debug\net10.0\MemberManagement.Infrastracture.runtimeconfig.json
 C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Infrastracture\bin\Debug\net10.0\MemberManagement.Infrastracture.dll
@@ -6,12 +12,6 @@ C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Infrastracture\bin
 C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Infrastracture\bin\Debug\net10.0\MemberManagement.Domain.dll
 C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Infrastracture\bin\Debug\net10.0\MemberManagement.Application.pdb
 C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Infrastracture\bin\Debug\net10.0\MemberManagement.Domain.pdb
-C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Infrastracture\obj\Debug\net10.0\MemberManagement.Infrastracture.csproj.AssemblyReference.cache
-C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Infrastracture\obj\Debug\net10.0\MemberManagement.Infrastracture.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Infrastracture\obj\Debug\net10.0\MemberManagement.Infrastracture.AssemblyInfoInputs.cache
-C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Infrastracture\obj\Debug\net10.0\MemberManagement.Infrastracture.AssemblyInfo.cs
-C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Infrastracture\obj\Debug\net10.0\MemberManagement.Infrastracture.csproj.CoreCompileInputs.cache
-C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Infrastracture\obj\Debug\net10.0\MemberManagement.Infrastracture.sourcelink.json
 C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Infrastracture\obj\Debug\net10.0\MemberMa.4BEBE75F.Up2Date
 C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Infrastracture\obj\Debug\net10.0\MemberManagement.Infrastracture.dll
 C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Infrastracture\obj\Debug\net10.0\refint\MemberManagement.Infrastracture.dll

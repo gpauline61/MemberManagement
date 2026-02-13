@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace MemberManagement.Domain.Entities
@@ -8,6 +9,7 @@ namespace MemberManagement.Domain.Entities
     {
         public int BranchID { get; set; }
         public string BranchName { get; set; }
+        public string? BranchAddress { get; set; }
         public DateTime DateCreated { get; set; }
     }
 }

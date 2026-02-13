@@ -15,7 +15,6 @@ namespace MemberManagement.Domain.Entities
         public string? Email { get; set; }
         public bool IsActive { get; set; }
         public DateTime DateCreated { get; set; }
-
         public void Initialize()
         {
             this.IsActive = true;
