@@ -11,5 +11,8 @@ namespace MemberManagement.Domain.Entities
         public string BranchName { get; set; }
         public string? BranchAddress { get; set; }
         public DateTime DateCreated { get; set; }
+
+        public List<Member>? Members { get; set; }
+
     }
 }

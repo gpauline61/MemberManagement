@@ -1,10 +1,6 @@
 ﻿@using MemberManagement.Domain.Enum
 @using MemberManagement.Web.ViewModels.MemberVM
 @model MemberEditViewModel
-@{
-    ViewData["Title"] = "Edit Member";
-}
-
 
 <h1>
     <a asp-action="Index" style="text-decoration: none;">
@@ -58,10 +54,10 @@
                     <tr>
                         <td>@Html.DisplayNameFor(Model => Model.Branch)</td>
                         <td>
-                            <select asp-for="Branch" asp-items="@Html.GetEnumSelectList<BranchCategory>()" class="form-control">
+                            <select asp-for="BranchId" asp-items="@(ViewBag.BranchesList as SelectList)" class="form-control">
                                 <option>--Select--</option>
                             </select>
-                            <span asp-validation-for="Branch" class="text-danger"></span>
+                                <span asp-validation-for="Branch" class="text-danger"></span>
                         </td>
                     </tr>
                     <tr>
@@ -91,15 +87,7 @@
     </div>
     <div class="row justify-content-lg-center">
         <div class="col-2">
-                @if (Model == null)
-                {
-                    <input disabled type="submit" value="Save" class="btn btn-primary" />
-                }
-                else
-                {
-                    <input type="submit" value="Save" class="btn btn-primary" />
-                }
-            
+            <input type="submit" value="Save" class="btn btn-primary" />
         </div>
     </div>
     </form>

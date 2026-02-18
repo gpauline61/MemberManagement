@@ -144,5 +144,11 @@ namespace MemberManagement.Application.Services
             }
             return membersDTO;
         }
+
+        public async Task<IEnumerable> GetBranches()
+        {
+            var BranchesList = await _memberRepository.GetBranches();
+            return BranchesList;
+        }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using MemberManagement.Application.DTO.BranchDTO;
-using MemberManagement.Application.DTO.MemberDTO;
 using MemberManagement.Domain.Entities;
 using System.Collections;
 

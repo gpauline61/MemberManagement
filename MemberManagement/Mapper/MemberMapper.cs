@@ -2,7 +2,6 @@
 using MemberManagement.Application.DTO.BranchDTO;
 using MemberManagement.Application.DTO.MemberDTO;
 using MemberManagement.Domain.Entities;
-using MemberManagement.Web.ViewModels;
 using MemberManagement.Web.ViewModels.BranchVM;
 using MemberManagement.Web.ViewModels.MemberVM;
 
@@ -31,7 +30,9 @@ namespace MemberManagement.Web.Mapper
             CreateMap<MemberDetailDTO, MemberDetailDeleteViewModel>();
             CreateMap<Member, MemberCreateViewModel>();
             CreateMap<MemberEditDTO, MemberEditViewModel>();
+            CreateMap<MemberEditViewModel, Member>();
 
+            //Branch Mapper
             CreateMap<Branch, BranchIndexDTO>();
             CreateMap<BranchIndexDTO, BranchIndexViewModel>();
             CreateMap<Branch, BranchCreateViewModel>();

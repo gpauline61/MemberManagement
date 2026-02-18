@@ -1,4 +1,5 @@
-﻿using MemberManagement.Domain.Enum;
+﻿using MemberManagement.Domain.Entities;
+using MemberManagement.Domain.Enum;
 using System.ComponentModel.DataAnnotations;
 
 namespace MemberManagement.Web.ViewModels.MemberVM
@@ -12,11 +13,12 @@ namespace MemberManagement.Web.ViewModels.MemberVM
         public string FirstName { get; set; }
         [Display(Name = "Date of Birth")]
         public DateOnly Birthdate { get; set; }
-        public string Address { get; set; }
-        public BranchCategory Branch { get; set; }
+        public string? Address { get; set; }
+        public int? BranchId { get; set; }
+        public Branch Branch { get; set; }
         [Display(Name = "Contact No.")]
-        public string ContactNo { get; set; }
+        public string? ContactNo { get; set; }
         [Display(Name = "Email Address")]
-        public string Email { get; set; }
+        public string? Email { get; set; }
     }
 }
