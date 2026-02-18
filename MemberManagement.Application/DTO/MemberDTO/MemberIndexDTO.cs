@@ -1,5 +1,5 @@
 ﻿//DTO for listing all members
-using MemberManagement.Domain.Enum;
+using MemberManagement.Domain.Entities;
 
 namespace MemberManagement.Application.DTO.MemberDTO
 {
@@ -10,7 +10,8 @@ namespace MemberManagement.Application.DTO.MemberDTO
         public string FirstName { get; set; }
         public DateOnly Birthdate { get; set; }
         public string? Address { get; set; }
-        public BranchCategory Branch { get; set; }
+        public int? BranchId { get; set; }
+        public Branch Branch { get; set; }
         public string? ContactNo { get; set; }
         public string? Email { get; set; }
         public string IsActive { get; set; }

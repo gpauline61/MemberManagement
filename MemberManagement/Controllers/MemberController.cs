@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using MemberManagement.Application.DTO.MemberDTO;
 using MemberManagement.Application.Interface;
-using MemberManagement.Application.Services;
 using MemberManagement.Web.ViewModels.MemberVM;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Member = MemberManagement.Domain.Entities.Member;
 
 namespace MemberManagement.Web.Controllers
@@ -12,7 +12,7 @@ namespace MemberManagement.Web.Controllers
     {
         private readonly IMemberService _memberService;
         private readonly IMapper _mapper;
-        public MemberController(MemberService memberService, IMapper mapper)
+        public MemberController(IMemberService memberService, IMapper mapper)
         {
             _memberService = memberService;
             _mapper = mapper;
@@ -84,9 +84,11 @@ namespace MemberManagement.Web.Controllers
 
 
         //Open the create member page
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
             var memberCreateViewModel = new MemberCreateViewModel();
+            ViewBag.BranchesList = new SelectList(await _memberService.GetBranches(),
+                "BranchID", "BranchName");
             return View(memberCreateViewModel);
         }
 
@@ -113,10 +115,13 @@ namespace MemberManagement.Web.Controllers
                     //else, success in creating the member will redirect to all members' page
                     return RedirectToAction(nameof(Index));
             }
+            ViewBag.BranchesList = new SelectList(await _memberService.GetBranches(),
+                "BranchID", "BranchName");
             return View(member);
         }
 
         //Open the Edit page of a member
+        [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
             var memberDTO = await _memberService.EditMember(id);
@@ -130,6 +135,8 @@ namespace MemberManagement.Web.Controllers
 
             //Else will continue to open the Edit page with the member's details
             var memberViewModel = _mapper.Map<MemberEditViewModel>(memberDTO);
+            ViewBag.BranchesList = new SelectList(await _memberService.GetBranches(), 
+                "BranchID", "BranchName", memberViewModel.MemberID);
 
             //Else return to the page of Edit with the member's details
             return View(memberViewModel);
@@ -138,19 +145,22 @@ namespace MemberManagement.Web.Controllers
         //Process on saving the edited member
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Member member)
+        public async Task<IActionResult> Edit(int id, MemberEditViewModel memberEditViewModel)
         {
-            if (id != member.MemberID)
+            if (id != memberEditViewModel.MemberID)
             {
                 return NotFound();
             }
             //Check for input validation
+            var member = _mapper.Map<Member>(memberEditViewModel);
             if (ModelState.IsValid)
             {
                 await _memberService.SaveEditMember(id, member);
                 return RedirectToAction("Index");
             }
-            return View(member);
+            ViewBag.BranchesList = new SelectList(await _memberService.GetBranches(),
+                "BranchID", "BranchName", memberEditViewModel.MemberID);
+            return View(memberEditViewModel);
         }
 
         //Open the delete page of a member

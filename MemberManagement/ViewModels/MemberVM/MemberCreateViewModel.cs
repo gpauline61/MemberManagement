@@ -1,4 +1,5 @@
-﻿using MemberManagement.Domain.Enum;
+﻿using MemberManagement.Domain.Entities;
+using MemberManagement.Domain.Enum;
 using System.ComponentModel.DataAnnotations;
 
 namespace MemberManagement.Web.ViewModels.MemberVM
@@ -17,7 +18,8 @@ namespace MemberManagement.Web.ViewModels.MemberVM
         [Display(Name = "Date of Birth")]
         public DateOnly Birthdate { get; set; } = DateOnly.FromDateTime(DateTime.Today);
         public string? Address { get; set; }
-        public BranchCategory Branch { get; set; }
+        public int? BranchId { get; set; }
+        public Branch? Branch { get; set; }
         [Display(Name = "Contact No.")]
         [RegularExpression(@"^\+639([0-9]{9})$", ErrorMessage = "Invalid input. +639xxxxxxxxx")]
         public string? ContactNo { get; set; }

@@ -22,6 +22,29 @@ namespace MemberManagement.Infrastracture.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("MemberManagement.Domain.Entities.Branch", b =>
+                {
+                    b.Property<int>("BranchID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BranchID"));
+
+                    b.Property<string>("BranchAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BranchName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("BranchID");
+
+                    b.ToTable("Branches");
+                });
+
             modelBuilder.Entity("MemberManagement.Domain.Entities.Member", b =>
                 {
                     b.Property<int>("MemberID")
@@ -33,10 +56,10 @@ namespace MemberManagement.Infrastracture.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateOnly>("Birthdate")
+                    b.Property<DateOnly?>("Birthdate")
                         .HasColumnType("date");
 
-                    b.Property<int>("Branch")
+                    b.Property<int>("BranchId")
                         .HasColumnType("int");
 
                     b.Property<string>("ContactNo")
@@ -61,7 +84,25 @@ namespace MemberManagement.Infrastracture.Migrations
 
                     b.HasKey("MemberID");
 
+                    b.HasIndex("BranchId");
+
                     b.ToTable("Members");
+                });
+
+            modelBuilder.Entity("MemberManagement.Domain.Entities.Member", b =>
+                {
+                    b.HasOne("MemberManagement.Domain.Entities.Branch", "Branch")
+                        .WithMany("Members")
+                        .HasForeignKey("BranchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Branch");
+                });
+
+            modelBuilder.Entity("MemberManagement.Domain.Entities.Branch", b =>
+                {
+                    b.Navigation("Members");
                 });
 #pragma warning restore 612, 618
         }

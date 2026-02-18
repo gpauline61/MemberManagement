@@ -6,7 +6,6 @@
     ViewData["Title"] = "Edit Member";
 }
 
-
 <h1>
     <a asp-action="Index" style="text-decoration: none;">
         <i class="bi bi-arrow-left-circle fs-3" style="color: black" title="Back"></i>
@@ -59,10 +58,10 @@
                     <tr>
                         <td>@Html.DisplayNameFor(Model => Model.Branch)</td>
                         <td>
-                            <select asp-for="Branch" asp-items="@Html.GetEnumSelectList<BranchCategory>()" class="form-control">
+                            <select asp-for="BranchId" asp-items="@(ViewBag.BranchesList as SelectList)" class="form-control">
                                 <option>--Select--</option>
                             </select>
-                            <span asp-validation-for="Branch" class="text-danger"></span>
+                                <span asp-validation-for="Branch" class="text-danger"></span>
                         </td>
                     </tr>
                     <tr>
