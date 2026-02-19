@@ -24,7 +24,6 @@ namespace MemberManagement.Infrastracture.Repositories
 
         public bool Add(Branch branch)
         {
-            branch.DateCreated = DateTime.Now;
             _context.Add(branch);
 
             return Save();

@@ -31,6 +31,7 @@ namespace MemberManagement.Web.Mapper
             CreateMap<MemberIndexDTO, MemberIndexViewModel>();
             CreateMap<MemberDetailDTO, MemberDetailDeleteViewModel>();
             CreateMap<Member, MemberCreateViewModel>();
+            CreateMap<MemberCreateViewModel, Member>();
             CreateMap<MemberEditDTO, MemberEditViewModel>();
             CreateMap<MemberEditViewModel, Member>();
             //Branch Mapper
@@ -43,6 +44,8 @@ namespace MemberManagement.Web.Mapper
             CreateMap<Branch, BranchEditDTO>();
             CreateMap<BranchDeleteDTO, BranchDeleteViewModel>();
             CreateMap<Branch, BranchDeleteDTO>();
+            CreateMap<BranchEditViewModel, Branch>();
+            CreateMap<BranchCreateViewModel, Branch>();
 
             CreateMap<Membership, MembershipIndexDTO>();
             CreateMap<MembershipIndexDTO, MembershipIndexViewModel>();
@@ -51,6 +54,8 @@ namespace MemberManagement.Web.Mapper
             CreateMap<Membership, MembershipDetailViewModel>();
             CreateMap<MembershipEditDTO, MembershipEditViewModel>();
             CreateMap<Membership, MembershipEditDTO>();
+            CreateMap<MembershipCreateViewModel, Membership>();
+            CreateMap<MembershipEditViewModel, Membership>();
         }
     }
 }

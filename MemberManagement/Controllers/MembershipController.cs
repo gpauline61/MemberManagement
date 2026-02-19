@@ -58,8 +58,9 @@ namespace MemberManagement.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Membership membership)
+        public async Task<IActionResult> Create(MembershipCreateViewModel membershipViewModel)
         {
+            var membership = _mapper.Map<Membership>(membershipViewModel);
             if (ModelState.IsValid)
             {
                 var checkMembership = _membershipservice.AddMembership(membership);
@@ -96,12 +97,13 @@ namespace MemberManagement.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Membership membership)
+        public async Task<IActionResult> Edit(int id, MembershipEditViewModel membershipViewModel)
         {
-            if (id != membership.MembershipID)
+            if (id != membershipViewModel.MembershipID)
             {
                 return NotFound();
             }
+            var membership = _mapper.Map<Membership>(membershipViewModel);
             //Check for input validation
             if (ModelState.IsValid)
             {

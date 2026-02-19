@@ -19,7 +19,6 @@ namespace MemberManagement.Infrastracture.Repositories
         }
         public bool Add(Membership membership)
         {
-            membership.DateCreated = DateTime.Now;
             _context.Add(membership);
 
             return Save();

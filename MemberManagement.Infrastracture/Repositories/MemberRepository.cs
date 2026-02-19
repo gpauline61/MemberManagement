@@ -29,11 +29,6 @@ namespace MemberManagement.Infrastracture.Repositories
         //Add member
         public bool Add(Member member)
         {
-            //Set all new members IsActive flag to true
-            member.IsActive = true;
-
-            //Set DateCreated to the current time as the member added
-            member.DateCreated = DateTime.Now;
             _context.Add(member);
 
             //Call a local method Save to save changes to the database

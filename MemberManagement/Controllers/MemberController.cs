@@ -97,12 +97,13 @@ namespace MemberManagement.Web.Controllers
         //Processing of creating a member
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Member member)
+        public async Task<IActionResult> Create(MemberCreateViewModel member)
         {
+            var memberVMToMember = _mapper.Map<Member>(member);
             //Check if all input are valid
             if (ModelState.IsValid)
             {
-                var checkMember = _memberService.AddMember(member);
+                var checkMember = _memberService.AddMember(memberVMToMember);
                 //If the member to be added is already in the list
                 //will create an error and will pass the current values
                 //in the form given by the user

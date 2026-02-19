@@ -18,11 +18,13 @@ namespace MemberManagement.Infrastracture.Data
             modelBuilder.Entity<Member>()
                 .HasOne(m => m.Branch)
                 .WithMany(d => d.Members)
-                .HasForeignKey(m => m.BranchId);
+                .HasForeignKey(m => m.BranchId)
+                .IsRequired(false);
             modelBuilder.Entity<Member>()
                 .HasOne(m => m.Membership)
                 .WithMany(m => m.Members)
-                .HasForeignKey(m => m.MembershipId);
+                .HasForeignKey(m => m.MembershipId)
+                .IsRequired(false);
         }
         
     }
