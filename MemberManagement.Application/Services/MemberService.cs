@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using MemberManagement.Application.DTO;
+using MemberManagement.Application.DTO.MemberDTO;
 using MemberManagement.Application.Interface;
 using MemberManagement.Domain.Interfaces;
 using System.Collections;
@@ -143,6 +143,12 @@ namespace MemberManagement.Application.Services
                 membersDTO.Add(memberDTO);
             }
             return membersDTO;
+        }
+
+        public async Task<IEnumerable> GetBranches()
+        {
+            var BranchesList = await _memberRepository.GetBranches();
+            return BranchesList;
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using MemberManagement.Application.DTO;
+﻿using MemberManagement.Application.DTO.MemberDTO;
 using MemberManagement.Domain.Entities;
 using System.Collections;
 
@@ -15,6 +15,6 @@ namespace MemberManagement.Application.Interface
         Task DeleteConfirmed(int id);
         Task<IEnumerable> GetAllActive();
         Task<IEnumerable> GetAllInactive();
-
+        Task<IEnumerable> GetBranches();
     }
 }

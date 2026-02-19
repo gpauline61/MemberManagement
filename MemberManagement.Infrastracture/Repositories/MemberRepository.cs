@@ -1,4 +1,5 @@
-﻿using MemberManagement.Domain.Entities;
+﻿using MemberManagement.Application.DTO.MemberDTO;
+using MemberManagement.Domain.Entities;
 using MemberManagement.Domain.Interfaces;
 using MemberManagement.Infrastracture.Data;
 using Microsoft.EntityFrameworkCore;
@@ -19,7 +20,8 @@ namespace MemberManagement.Infrastracture.Repositories
         {
             //Retrieve all Members in Db order by its Branch
             return await _context.Members
-                .OrderBy(m => m.Branch)
+                .OrderBy(m => m.BranchId)
+                .Include(m => m.Branch)
                 .ToListAsync();
         }
 
@@ -51,7 +53,6 @@ namespace MemberManagement.Infrastracture.Repositories
         public async Task<Member> EditMember(int id)
         {
             var member = await GetIdAsync(id);
-
             //If member is found, return the details of the member
             return member != null ? member : null;
         }
@@ -84,6 +85,7 @@ namespace MemberManagement.Infrastracture.Repositories
             var members = await _context.Members
                 .Where(m => m.IsActive)
                 .OrderBy(m => m.Branch)
+                .Include(m => m.Branch)
                 .ToListAsync();
             return members;
         }
@@ -94,6 +96,7 @@ namespace MemberManagement.Infrastracture.Repositories
             var members = await _context.Members
                 .Where(m => m.IsActive == false)
                 .OrderBy(m => m.Branch)
+                .Include(m => m.Branch)
                 .ToListAsync();
             return members;
         }
@@ -131,7 +134,9 @@ namespace MemberManagement.Infrastracture.Repositories
         //Get the member given by its Id
         public async Task<Member> GetIdAsync(int id)
         {
-            var member = await _context.Members.FirstAsync(m => m.MemberID == id);
+            var member = await _context.Members
+                .Include(m => m.Branch)
+                .FirstAsync(m => m.MemberID == id);
             return member;
         }
 
@@ -148,6 +153,12 @@ namespace MemberManagement.Infrastracture.Repositories
             member.IsActive = false;
             Update(member);
             return Save();
+        }
+
+        public async Task<IEnumerable> GetBranches()
+        {
+            var BranchList = await _context.Branches.ToListAsync();
+            return BranchList;
         }
     }
 }

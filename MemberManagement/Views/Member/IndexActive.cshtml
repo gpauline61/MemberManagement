@@ -1,4 +1,5 @@
 ﻿@using MemberManagement.Web.ViewModels
+@using MemberManagement.Web.ViewModels.MemberVM
 @model List<MemberActiveInactiveViewModel>
 @{
     ViewData["Title"] = "Index";
@@ -66,7 +67,7 @@
                     @Html.DisplayFor(modelItem => item.Address)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Branch)
+                    @Html.DisplayFor(modelItem => item.Branch.BranchName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ContactNo)

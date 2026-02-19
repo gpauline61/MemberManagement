@@ -1,5 +1,5 @@
 ﻿@using MemberManagement.Domain.Enum
-@using MemberManagement.Web.ViewModels
+@using MemberManagement.Web.ViewModels.MemberVM
 @model MemberCreateViewModel
 @{
     ViewData["Title"] = "Add Member";
@@ -57,7 +57,7 @@
                         <tr>
                             <td>@Html.DisplayNameFor(Model => Model.Branch)</td>
                             <td>
-                                <select asp-for="Branch" asp-items="@Html.GetEnumSelectList<BranchCategory>()" class="form-control">
+                                <select asp-for="BranchId" asp-items="@(ViewBag.BranchesList as SelectList)" class="form-control">
                                     <option>--Select--</option>
                                 </select>
                                 <span asp-validation-for="Branch" class="text-danger"></span>
