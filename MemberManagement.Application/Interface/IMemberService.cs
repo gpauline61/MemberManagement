@@ -16,5 +16,6 @@ namespace MemberManagement.Application.Interface
         Task<IEnumerable> GetAllActive();
         Task<IEnumerable> GetAllInactive();
         Task<IEnumerable> GetBranches();
+        Task<IEnumerable> GetMemberships();
     }
 }

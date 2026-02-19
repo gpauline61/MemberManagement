@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace MemberManagement.Application.DTO.MembershipDTO
 {
     public class MembershipEditDTO

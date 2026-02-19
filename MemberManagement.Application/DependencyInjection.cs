@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-﻿using MemberManagement.Application.Interface;
-using MemberManagement.Application.Services;
-=======
-﻿using MemberManagement.Application.Services;
 using MemberManagement.Application.Interface;
->>>>>>> feature/membership
+using MemberManagement.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace MemberManagement.Application
@@ -16,12 +11,9 @@ namespace MemberManagement.Application
             //Add Service classes to service collection
             services.AddScoped<IMemberService, MemberService>();
             services.AddScoped<HomeService>();
-<<<<<<< HEAD
-            services.AddScoped<IBranchService, BranchService>();
-=======
 
+            services.AddScoped<IBranchService, BranchService>();
             services.AddScoped<IMembershipService, MembershipService>();
->>>>>>> feature/membership
             return services;
         }
     }

@@ -22,6 +22,7 @@ namespace MemberManagement.Infrastracture.Repositories
             return await _context.Members
                 .OrderBy(m => m.BranchId)
                 .Include(m => m.Branch)
+                .Include(m => m.Membership)
                 .ToListAsync();
         }
 
@@ -86,6 +87,7 @@ namespace MemberManagement.Infrastracture.Repositories
                 .Where(m => m.IsActive)
                 .OrderBy(m => m.Branch)
                 .Include(m => m.Branch)
+                .Include(m => m.Membership)
                 .ToListAsync();
             return members;
         }
@@ -97,6 +99,7 @@ namespace MemberManagement.Infrastracture.Repositories
                 .Where(m => m.IsActive == false)
                 .OrderBy(m => m.Branch)
                 .Include(m => m.Branch)
+                .Include(m => m.Membership)
                 .ToListAsync();
             return members;
         }
@@ -136,6 +139,7 @@ namespace MemberManagement.Infrastracture.Repositories
         {
             var member = await _context.Members
                 .Include(m => m.Branch)
+                .Include(m => m.Membership)
                 .FirstAsync(m => m.MemberID == id);
             return member;
         }
@@ -159,6 +163,11 @@ namespace MemberManagement.Infrastracture.Repositories
         {
             var BranchList = await _context.Branches.ToListAsync();
             return BranchList;
+        }
+        public async Task<IEnumerable> GetMemberships()
+        {
+            var MembershipList = await _context.Memberships.ToListAsync();
+            return MembershipList;
         }
     }
 }

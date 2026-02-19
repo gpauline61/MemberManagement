@@ -19,5 +19,6 @@ namespace MemberManagement.Domain.Interfaces
         bool Update(Member member);
 
         Task<IEnumerable> GetBranches();
+        Task<IEnumerable> GetMemberships();
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace MemberManagement.Domain.Entities
 {
     public class Membership
@@ -10,5 +7,7 @@ namespace MemberManagement.Domain.Entities
         public string MembershipType { get; set; }
         public string? MembershipDescription { get; set; }
         public DateTime DateCreated { get; set; }
+
+        public List<Member>? Members { get; set; }
     }
 }

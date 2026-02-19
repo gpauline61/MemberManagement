@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
-
+﻿
 namespace MemberManagement.Application.DTO.MembershipDTO
 {
     public class MembershipIndexDTO

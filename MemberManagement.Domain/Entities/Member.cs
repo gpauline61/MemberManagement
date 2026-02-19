@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
+﻿
 namespace MemberManagement.Domain.Entities
 {
     public class Member
@@ -13,6 +12,9 @@ namespace MemberManagement.Domain.Entities
 
         public int? BranchId { get; set; }
         public Branch? Branch { get; set; }
+
+        public int? MembershipId { get; set; }
+        public Membership? Membership { get; set; }
 
 
         public string? ContactNo { get; set; }

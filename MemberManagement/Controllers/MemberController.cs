@@ -1,10 +1,6 @@
 ﻿using AutoMapper;
 using MemberManagement.Application.DTO.MemberDTO;
 using MemberManagement.Application.Interface;
-<<<<<<< HEAD
-=======
-using MemberManagement.Application.Services;
->>>>>>> feature/membership
 using MemberManagement.Web.ViewModels.MemberVM;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -93,6 +89,8 @@ namespace MemberManagement.Web.Controllers
             var memberCreateViewModel = new MemberCreateViewModel();
             ViewBag.BranchesList = new SelectList(await _memberService.GetBranches(),
                 "BranchID", "BranchName");
+            ViewBag.MembershipsList = new SelectList(await _memberService.GetMemberships(),
+                "MembershipID", "MembershipType");
             return View(memberCreateViewModel);
         }
 
@@ -121,6 +119,8 @@ namespace MemberManagement.Web.Controllers
             }
             ViewBag.BranchesList = new SelectList(await _memberService.GetBranches(),
                 "BranchID", "BranchName");
+            ViewBag.MembershipsList = new SelectList(await _memberService.GetMemberships(),
+                "MembershipID", "MembershipType");
             return View(member);
         }
 
@@ -141,6 +141,8 @@ namespace MemberManagement.Web.Controllers
             var memberViewModel = _mapper.Map<MemberEditViewModel>(memberDTO);
             ViewBag.BranchesList = new SelectList(await _memberService.GetBranches(), 
                 "BranchID", "BranchName", memberViewModel.MemberID);
+            ViewBag.MembershipsList = new SelectList(await _memberService.GetMemberships(),
+                "MembershipID", "MembershipType");
 
             //Else return to the page of Edit with the member's details
             return View(memberViewModel);
@@ -164,6 +166,8 @@ namespace MemberManagement.Web.Controllers
             }
             ViewBag.BranchesList = new SelectList(await _memberService.GetBranches(),
                 "BranchID", "BranchName", memberEditViewModel.MemberID);
+            ViewBag.MembershipsList = new SelectList(await _memberService.GetMemberships(),
+                "MembershipID", "MembershipType");
             return View(memberEditViewModel);
         }
 

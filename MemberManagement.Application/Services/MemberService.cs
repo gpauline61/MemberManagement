@@ -150,5 +150,11 @@ namespace MemberManagement.Application.Services
             var BranchesList = await _memberRepository.GetBranches();
             return BranchesList;
         }
+
+        public async Task<IEnumerable> GetMemberships()
+        {
+            var MembershipsList = await _memberRepository.GetMemberships();
+            return MembershipsList;
+        }
     }
 }

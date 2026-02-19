@@ -11,19 +11,20 @@ namespace MemberManagement.Infrastracture.Data
             
         }
         public DbSet<Member> Members { get; set; }
-<<<<<<< HEAD
         public DbSet<Branch> Branches { get; set; }
-
+        public DbSet<Membership> Memberships { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Member>()
                 .HasOne(m => m.Branch)
                 .WithMany(d => d.Members)
                 .HasForeignKey(m => m.BranchId);
+            modelBuilder.Entity<Member>()
+                .HasOne(m => m.Membership)
+                .WithMany(m => m.Members)
+                .HasForeignKey(m => m.MembershipId);
         }
-=======
-        public DbSet<Membership> Memberships { get; set; }
->>>>>>> feature/membership
+        
     }
     
 }

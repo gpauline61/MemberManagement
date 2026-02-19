@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 ﻿@using MemberManagement.Web.ViewModels
 @using MemberManagement.Web.ViewModels.MemberVM
-=======
-﻿@using MemberManagement.Web.ViewModels.MemberVM
->>>>>>> feature/membership
 @model MemberDetailDeleteViewModel
 
 @{
@@ -49,6 +45,10 @@
                     <tr>
                         <td>@Html.DisplayNameFor(Model => Model.Branch)</td>
                         <td>@Html.DisplayFor(Model => Model.Branch.BranchName)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(Model => Model.Membership)</td>
+                        <td>@Html.DisplayFor(Model => Model.Membership.MembershipType)</td>
                     </tr>
                     <tr>
                         <td>@Html.DisplayNameFor(Model => Model.ContactNo)</td>
