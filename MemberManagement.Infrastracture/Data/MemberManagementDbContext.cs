@@ -11,6 +11,7 @@ namespace MemberManagement.Infrastracture.Data
             
         }
         public DbSet<Member> Members { get; set; }
+<<<<<<< HEAD
         public DbSet<Branch> Branches { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -20,6 +21,9 @@ namespace MemberManagement.Infrastracture.Data
                 .WithMany(d => d.Members)
                 .HasForeignKey(m => m.BranchId);
         }
+=======
+        public DbSet<Membership> Memberships { get; set; }
+>>>>>>> feature/membership
     }
     
 }

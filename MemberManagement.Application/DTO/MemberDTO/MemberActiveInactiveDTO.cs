@@ -1,5 +1,10 @@
 ﻿using MemberManagement.Domain.Entities;
 
+<<<<<<< HEAD
+=======
+using MemberManagement.Domain.Enum;
+
+>>>>>>> feature/membership
 namespace MemberManagement.Application.DTO.MemberDTO
 {
     public class MemberActiveInactiveDTO

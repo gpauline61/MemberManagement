@@ -1,6 +1,10 @@
 ﻿using AutoMapper;
 using MemberManagement.Application.DTO.MemberDTO;
 using MemberManagement.Application.Interface;
+<<<<<<< HEAD
+=======
+using MemberManagement.Application.Services;
+>>>>>>> feature/membership
 using MemberManagement.Web.ViewModels.MemberVM;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;

@@ -1,0 +1,61 @@
+﻿@using MemberManagement.Web.ViewModels.MembershipVM
+@model MembershipDetailViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>
+    <a asp-action="Index" style="text-decoration: none;">
+        <i class="bi bi-arrow-left-circle fs-3" style="color: black" title="Back"></i>
+    </a>
+    Delete
+</h1>
+
+<h3>Are you sure you want to delete this membership?</h3>
+<div class="container">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row justify-content-center">
+        <div class="col col-lg-10">
+            <table class="table table-striped table-bordered table-hover responsive">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Html.DisplayNameFor(Model => Model.MembershipType)</td>
+                        <td>@Html.DisplayFor(Model => Model.MembershipType)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(Model => Model.MembershipDescription)</td>
+                        <td>@Html.DisplayFor(Model => Model.MembershipDescription)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div class="row justify-content-lg-center">
+        <div class="col-2">
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="MembershipID" />
+                <!-- If a member to be deleted does not exists -->
+                <!-- or the member's IsActive is already set to flase -->
+                @if (Model == null)
+                {
+                    <input disabled type="submit" value="Delete" class="btn btn-danger" />
+                }
+                else
+                {
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                }
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</div>
