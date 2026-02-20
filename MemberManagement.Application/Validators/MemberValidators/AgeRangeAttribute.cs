@@ -26,14 +26,13 @@ namespace MemberManagement.Application.Validators.MemberValidators
                 .AddMonths(-maxMonths)
                 .AddDays(-maxDays);
 
-            if (dateOfBirth <= minimumBirthDate &&
-                dateOfBirth >= maximumBirthDate)
-            {
-                return ValidationResult.Success;
-            }
+            if (dateOfBirth > minimumBirthDate)
+                return new ValidationResult($"Age must be at least {minAgeInYears}.");
+            
+            if(dateOfBirth < maximumBirthDate)
+                return new ValidationResult($"Age must not exceed to {maxAgeInYears} years 6 months and 1 day.");
 
-            return new ValidationResult(
-                $"Age must be between {minAgeInYears} years and {maxAgeInYears} years {maxMonths} months {maxDays} day.");
+            return ValidationResult.Success;
         }
     }
 }

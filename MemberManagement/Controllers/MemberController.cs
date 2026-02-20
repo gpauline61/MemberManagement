@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MemberManagement.Application.DTO.MemberDTO;
 using MemberManagement.Application.Interface;
+using MemberManagement.Application.Services;
 using MemberManagement.Web.ViewModels.MemberVM;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,6 +15,8 @@ namespace MemberManagement.Web.Controllers
         private readonly IMapper _mapper;
         public MemberController(IMemberService memberService, IMapper mapper)
         {
+            ArgumentNullException.ThrowIfNull(memberService);
+            ArgumentNullException.ThrowIfNull(mapper);
             _memberService = memberService;
             _mapper = mapper;
         }

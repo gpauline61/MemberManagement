@@ -15,6 +15,8 @@ namespace MemberManagement.Web.Controllers
         private readonly IMapper _mapper;
         public BranchController(IBranchService branchService, IMapper mapper)
         {
+            ArgumentNullException.ThrowIfNull(branchService);
+            ArgumentNullException.ThrowIfNull(mapper);
             _branchService = branchService;
             _mapper = mapper;
         }

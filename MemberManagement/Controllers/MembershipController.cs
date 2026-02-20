@@ -17,6 +17,8 @@ namespace MemberManagement.Web.Controllers
 
         public MembershipController(IMembershipService membershipService, IMapper mapper)
         {
+            ArgumentNullException.ThrowIfNull(membershipService);
+            ArgumentNullException.ThrowIfNull(mapper);
             _membershipservice = membershipService;
             _mapper = mapper;
         }

@@ -1,3 +1,5 @@
+using AutoMapper;
+using MemberManagement.Application.Interface;
 using MemberManagement.Application.Services;
 using MemberManagement.Models;
 using MemberManagement.Web.ViewModels.MemberVM;
@@ -11,6 +13,7 @@ namespace MemberManagement.Controllers
         private readonly HomeService _homeService;
         public HomeController(HomeService homeService)
         {
+            ArgumentNullException.ThrowIfNull(homeService);
             _homeService = homeService;
         }
 

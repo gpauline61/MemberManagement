@@ -3,9 +3,9 @@ namespace MemberManagement.Domain.Entities
 {
     public class Member
     {
-        public int MemberID { get; private set; }
-        public string FirstName { get; private set; }
-        public string LastName { get; private set; }
+        public int MemberID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public DateOnly? Birthdate { get; set; }
         public string? Address { get; set; }
 
@@ -20,7 +20,7 @@ namespace MemberManagement.Domain.Entities
         public bool IsActive { get; set; }
         public DateTime DateCreated { get; set; }
 
-        protected Member() { }
+        public Member() { }
         public Member(string firstName, string lastName)
         {
             if (string.IsNullOrWhiteSpace(lastName))
@@ -32,12 +32,6 @@ namespace MemberManagement.Domain.Entities
             LastName = lastName;
             IsActive = true;
             DateCreated = DateTime.UtcNow;
-        }
-
-        public void Initialize()
-        {
-            this.IsActive = true;
-            this.DateCreated = DateTime.UtcNow;
         }
     }
 

@@ -4,13 +4,13 @@ namespace MemberManagement.Domain.Entities
     public class Membership
     {
         public int MembershipID { get; set; }
-        public string MembershipType { get; private set; }
+        public string MembershipType { get; set; }
         public string? MembershipDescription { get; set; }
-        public DateTime DateCreated { get; private set; }
+        public DateTime DateCreated { get; set; }
 
-        public List<Member>? Members { get; private set; }
+        public List<Member>? Members { get; set; }
 
-        public Membership() { }
+        public Membership() { } //model Membership binding
         public Membership(List<Member> members, string membershipType)
         {
             MembershipType = membershipType;

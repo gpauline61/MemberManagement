@@ -31,9 +31,9 @@ namespace MemberManagement.Infrastracture.Repositories
 
         public async Task<Branch> DetailBranch(int id)
         {
-            var member = await GetIdAsync(id);
+            var branch = await GetIdAsync(id);
 
-            return member != null ? member : null;
+            return branch != null ? branch : null;
         }
 
         public async Task<Branch> EditBranch(int id)
@@ -61,6 +61,7 @@ namespace MemberManagement.Infrastracture.Repositories
             {
                 Delete(branch);
             }
+            
         }
         public async Task<Branch> GetIdAsync(int id)
         {

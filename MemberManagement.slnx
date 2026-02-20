@@ -2,5 +2,6 @@
   <Project Path="MemberManagement.Application/MemberManagement.Application.csproj" />
   <Project Path="MemberManagement.Domain/MemberManagement.Domain.csproj" />
   <Project Path="MemberManagement.Infrastracture/MemberManagement.Infrastracture.csproj" />
+  <Project Path="MemberManagement.Test/MemberManagement.Test.csproj" Id="f83a5f2f-476a-4565-a1df-0b305cd0f360" />
   <Project Path="MemberManagement/MemberManagement.Web.csproj" />
 </Solution>
