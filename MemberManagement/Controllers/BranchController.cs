@@ -15,6 +15,8 @@ namespace MemberManagement.Web.Controllers
         private readonly IMapper _mapper;
         public BranchController(IBranchService branchService, IMapper mapper)
         {
+            ArgumentNullException.ThrowIfNull(branchService);
+            ArgumentNullException.ThrowIfNull(mapper);
             _branchService = branchService;
             _mapper = mapper;
         }
@@ -43,8 +45,9 @@ namespace MemberManagement.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Branch branch)
+        public async Task<IActionResult> Create(BranchCreateViewModel branchViewModel)
         {
+            var branch = _mapper.Map<Branch>(branchViewModel);
             if (ModelState.IsValid)
             {
                 var checkBranch = _branchService.AddBranch(branch);
@@ -93,12 +96,13 @@ namespace MemberManagement.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Branch branch)
+        public async Task<IActionResult> Edit(int id, BranchEditViewModel branchViewModel)
         {
-            if (id != branch.BranchID)
+            if (id != branchViewModel.BranchID)
             {
                 return NotFound();
             }
+            var branch = _mapper.Map<Branch>(branchViewModel);
             //Check for input validation
             if (ModelState.IsValid)
             {

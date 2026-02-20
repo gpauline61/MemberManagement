@@ -58,8 +58,8 @@ namespace MemberManagement.Infrastracture.Migrations
 
                     b.Property<DateOnly?>("Birthdate")
                         .HasColumnType("date");
-
-                    b.Property<int>("BranchId")
+                    b.Property<int>("BranchId");
+                    b.Property<int?>("Branch")
                         .HasColumnType("int");
 
                     b.Property<string>("ContactNo")
@@ -88,7 +88,6 @@ namespace MemberManagement.Infrastracture.Migrations
 
                     b.ToTable("Members");
                 });
-
             modelBuilder.Entity("MemberManagement.Domain.Entities.Member", b =>
                 {
                     b.HasOne("MemberManagement.Domain.Entities.Branch", "Branch")
@@ -103,8 +102,31 @@ namespace MemberManagement.Infrastracture.Migrations
             modelBuilder.Entity("MemberManagement.Domain.Entities.Branch", b =>
                 {
                     b.Navigation("Members");
-                });
+                    modelBuilder.Entity("MemberManagement.Domain.Entities.Membership", b =>
+                        {
+                            b.Property<int>("MembershipID")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("int");
+
+                            SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MembershipID"));
+
+                            b.Property<DateTime>("DateCreated")
+                                .HasColumnType("datetime2");
+
+                            b.Property<string>("MembershipDescription")
+                                .HasColumnType("nvarchar(max)");
+
+                            b.Property<string>("MembershipType")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b.HasKey("MembershipID");
+
+                            b.ToTable("Memberships");
+                        });
 #pragma warning restore 612, 618
+                });
+            }
         }
+
     }
-}

@@ -22,6 +22,7 @@ namespace MemberManagement.Infrastracture
             services.AddScoped<IMemberRepository, MemberRepository>();
             services.AddScoped<IHomeRepository, HomeRepository>();
             services.AddScoped<IBranchRepository, BranchRepository>();
+            services.AddScoped<IMembershipRepository, MembershipRepository>();
             return services;
         }
     }

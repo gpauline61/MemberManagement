@@ -1,4 +1,5 @@
-﻿using MemberManagement.Domain.Entities;
+﻿using MemberManagement.Application.Validators.MemberValidators;
+using MemberManagement.Domain.Entities;
 using MemberManagement.Domain.Enum;
 using System.ComponentModel.DataAnnotations;
 
@@ -16,10 +17,13 @@ namespace MemberManagement.Web.ViewModels.MemberVM
         //Date picker
         [DataType(DataType.Date)]
         [Display(Name = "Date of Birth")]
-        public DateOnly Birthdate { get; set; } = DateOnly.FromDateTime(DateTime.Today);
+        [AgeRangeAttribute]
+        public DateOnly Birthdate { get; set; }
         public string? Address { get; set; }
         public int? BranchId { get; set; }
         public Branch? Branch { get; set; }
+        public int? MembershipId { get; set; }
+        public Membership? Membership { get; set; }
         [Display(Name = "Contact No.")]
         [RegularExpression(@"^\+639([0-9]{9})$", ErrorMessage = "Invalid input. +639xxxxxxxxx")]
         public string? ContactNo { get; set; }

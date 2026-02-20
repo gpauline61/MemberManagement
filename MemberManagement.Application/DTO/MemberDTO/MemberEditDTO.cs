@@ -11,6 +11,8 @@ namespace MemberManagement.Application.DTO.MemberDTO
         public string? Address { get; set; }
         public int? BranchId { get; set; }
         public Branch Branch { get; set; }
+        public int? MembershipId { get; set; }
+        public Membership? Membership { get; set; }
         public string? ContactNo { get; set; }
         public string? Email { get; set; }
         public bool IsActive { get; set; }

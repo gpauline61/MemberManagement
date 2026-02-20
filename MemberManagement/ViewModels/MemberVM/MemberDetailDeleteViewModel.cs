@@ -15,7 +15,9 @@ namespace MemberManagement.Web.ViewModels.MemberVM
         public DateOnly Birthdate { get; set; }
         public string? Address { get; set; }
         public int? BranchId { get; set; }
-        public Branch Branch { get; set; }
+        public Branch? Branch { get; set; }
+        public int? MembershipId { get; set; }
+        public Membership? Membership { get; set; }
         [Display(Name = "Contact No.")]
         public string? ContactNo { get; set; }
         [Display(Name = "Email Address")]

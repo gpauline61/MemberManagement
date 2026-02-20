@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
-
+﻿
 namespace MemberManagement.Domain.Entities
 {
     public class Branch
@@ -13,6 +9,14 @@ namespace MemberManagement.Domain.Entities
         public DateTime DateCreated { get; set; }
 
         public List<Member>? Members { get; set; }
+
+        public Branch() { }
+        public Branch(List<Member> members, string branchName)
+        {
+            BranchName = branchName;   
+            Members = members ?? new List<Member>();
+            DateCreated = DateTime.UtcNow;
+        }
 
     }
 }

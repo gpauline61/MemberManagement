@@ -58,9 +58,18 @@
                             <td>@Html.DisplayNameFor(Model => Model.Branch)</td>
                             <td>
                                 <select asp-for="BranchId" asp-items="@(ViewBag.BranchesList as SelectList)" class="form-control">
-                                    <option>--Select--</option>
+                                    
                                 </select>
                                 <span asp-validation-for="Branch" class="text-danger"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(Model => Model.Membership)</td>
+                            <td>
+                                <select asp-for="MembershipId" asp-items="@(ViewBag.MembershipsList as SelectList)" class="form-control">
+                                    
+                                </select>
+                                <span asp-validation-for="Membership" class="text-danger"></span>
                             </td>
                         </tr>
                         <tr>

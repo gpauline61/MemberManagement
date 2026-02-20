@@ -24,7 +24,6 @@ namespace MemberManagement.Infrastracture.Repositories
 
         public bool Add(Branch branch)
         {
-            branch.DateCreated = DateTime.Now;
             _context.Add(branch);
 
             return Save();
@@ -32,9 +31,9 @@ namespace MemberManagement.Infrastracture.Repositories
 
         public async Task<Branch> DetailBranch(int id)
         {
-            var member = await GetIdAsync(id);
+            var branch = await GetIdAsync(id);
 
-            return member != null ? member : null;
+            return branch != null ? branch : null;
         }
 
         public async Task<Branch> EditBranch(int id)
@@ -60,8 +59,19 @@ namespace MemberManagement.Infrastracture.Repositories
             var branch = await GetIdAsync(id);
             if (branch != null)
             {
+                await MemberBranchIDTONull(branch.BranchID);
                 Delete(branch);
             }
+            
+        }
+        public async Task MemberBranchIDTONull(int Branch)
+        {
+            var members = await _context.Members.Where(m => m.BranchId == Branch).ToListAsync();
+            foreach (var member in members)
+            {
+                member.BranchId = null;
+            }
+            Save();
         }
         public async Task<Branch> GetIdAsync(int id)
         {

@@ -1,4 +1,4 @@
-﻿using MemberManagement.Application.Interface;
+using MemberManagement.Application.Interface;
 using MemberManagement.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -11,7 +11,9 @@ namespace MemberManagement.Application
             //Add Service classes to service collection
             services.AddScoped<IMemberService, MemberService>();
             services.AddScoped<HomeService>();
+
             services.AddScoped<IBranchService, BranchService>();
+            services.AddScoped<IMembershipService, MembershipService>();
             return services;
         }
     }

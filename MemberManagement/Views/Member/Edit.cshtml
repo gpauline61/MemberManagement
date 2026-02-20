@@ -65,6 +65,15 @@
                         </td>
                     </tr>
                     <tr>
+                        <td>@Html.DisplayNameFor(Model => Model.Membership)</td>
+                        <td>
+                            <select asp-for="MembershipId" asp-items="@(ViewBag.MembershipsList as SelectList)" class="form-control">
+                                <option>--Select--</option>
+                            </select>
+                                <span asp-validation-for="Membership" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
                         <td>@Html.DisplayNameFor(Model => Model.ContactNo)</td>
                         <td>
                             <input asp-for="ContactNo" class="form-control" placeholder="+639xxxxxxxxx"/>

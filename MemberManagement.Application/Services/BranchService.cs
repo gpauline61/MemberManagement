@@ -17,6 +17,7 @@ namespace MemberManagement.Application.Services
             _branchRepository = branchRepository;
             _mapper = mapper;
         }
+
         public async Task<IEnumerable> GetAll()
         {
             var branches = (IEnumerable<Branch>)await _branchRepository.GetAll();

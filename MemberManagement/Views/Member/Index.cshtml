@@ -1,5 +1,6 @@
 ﻿@using MemberManagement.Web.ViewModels
 @using MemberManagement.Web.ViewModels.MemberVM
+﻿@using MemberManagement.Web.ViewModels.MemberVM
 @model List<MemberIndexViewModel>
 
 @{
@@ -40,6 +41,9 @@
                 @Html.DisplayNameFor(model => model[0].Branch)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model[0].Membership)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model[0].ContactNo)
             </th>
             <th>
@@ -72,6 +76,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Branch.BranchName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Membership.MembershipType)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ContactNo)
@@ -119,6 +126,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model[0].Branch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].Membership)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model[0].ContactNo)

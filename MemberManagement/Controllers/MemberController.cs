@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MemberManagement.Application.DTO.MemberDTO;
 using MemberManagement.Application.Interface;
+using MemberManagement.Application.Services;
 using MemberManagement.Web.ViewModels.MemberVM;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,6 +15,8 @@ namespace MemberManagement.Web.Controllers
         private readonly IMapper _mapper;
         public MemberController(IMemberService memberService, IMapper mapper)
         {
+            ArgumentNullException.ThrowIfNull(memberService);
+            ArgumentNullException.ThrowIfNull(mapper);
             _memberService = memberService;
             _mapper = mapper;
         }
@@ -89,18 +92,21 @@ namespace MemberManagement.Web.Controllers
             var memberCreateViewModel = new MemberCreateViewModel();
             ViewBag.BranchesList = new SelectList(await _memberService.GetBranches(),
                 "BranchID", "BranchName");
+            ViewBag.MembershipsList = new SelectList(await _memberService.GetMemberships(),
+                "MembershipID", "MembershipType");
             return View(memberCreateViewModel);
         }
 
         //Processing of creating a member
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Member member)
+        public async Task<IActionResult> Create(MemberCreateViewModel member)
         {
+            var memberVMToMember = _mapper.Map<Member>(member);
             //Check if all input are valid
             if (ModelState.IsValid)
             {
-                var checkMember = _memberService.AddMember(member);
+                var checkMember = _memberService.AddMember(memberVMToMember);
                 //If the member to be added is already in the list
                 //will create an error and will pass the current values
                 //in the form given by the user
@@ -117,6 +123,8 @@ namespace MemberManagement.Web.Controllers
             }
             ViewBag.BranchesList = new SelectList(await _memberService.GetBranches(),
                 "BranchID", "BranchName");
+            ViewBag.MembershipsList = new SelectList(await _memberService.GetMemberships(),
+                "MembershipID", "MembershipType");
             return View(member);
         }
 
@@ -137,6 +145,8 @@ namespace MemberManagement.Web.Controllers
             var memberViewModel = _mapper.Map<MemberEditViewModel>(memberDTO);
             ViewBag.BranchesList = new SelectList(await _memberService.GetBranches(), 
                 "BranchID", "BranchName", memberViewModel.MemberID);
+            ViewBag.MembershipsList = new SelectList(await _memberService.GetMemberships(),
+                "MembershipID", "MembershipType");
 
             //Else return to the page of Edit with the member's details
             return View(memberViewModel);
@@ -160,6 +170,8 @@ namespace MemberManagement.Web.Controllers
             }
             ViewBag.BranchesList = new SelectList(await _memberService.GetBranches(),
                 "BranchID", "BranchName", memberEditViewModel.MemberID);
+            ViewBag.MembershipsList = new SelectList(await _memberService.GetMemberships(),
+                "MembershipID", "MembershipType");
             return View(memberEditViewModel);
         }
 
