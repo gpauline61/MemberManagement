@@ -59,9 +59,19 @@ namespace MemberManagement.Infrastracture.Repositories
             var branch = await GetIdAsync(id);
             if (branch != null)
             {
+                await MemberBranchIDTONull(branch.BranchID);
                 Delete(branch);
             }
             
+        }
+        public async Task MemberBranchIDTONull(int Branch)
+        {
+            var members = await _context.Members.Where(m => m.BranchId == Branch).ToListAsync();
+            foreach (var member in members)
+            {
+                member.BranchId = null;
+            }
+            Save();
         }
         public async Task<Branch> GetIdAsync(int id)
         {

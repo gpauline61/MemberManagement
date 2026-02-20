@@ -48,8 +48,19 @@ namespace MemberManagement.Infrastracture.Repositories
             var membership = await GetIdAsync(id);
             if (membership != null)
             {
+                await MemberMembershipIDTONull(membership.MembershipID);
                 Delete(membership);
             }
+        }
+
+        public async Task MemberMembershipIDTONull(int Membership)
+        {
+            var members = await _context.Members.Where(m => m.MembershipId == Membership).ToListAsync();
+            foreach (var member in members)
+            {
+                member.MembershipId = null;
+            }
+            Save();
         }
 
         public async Task<Membership> DeleteMembership(int id)
