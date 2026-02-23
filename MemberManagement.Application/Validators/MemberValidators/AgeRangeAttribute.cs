@@ -13,9 +13,9 @@ namespace MemberManagement.Application.Validators.MemberValidators
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             if (value == null)
-                return ValidationResult.Success;
+                return new ValidationResult("Please enter a valid date.");
 
-            if (!((DateOnly)value is DateOnly dateOfBirth))
+            if (!((DateOnly)value is DateOnly birthDate))
                 return new ValidationResult("Invalid date format.");
 
             var today = DateOnly.FromDateTime(DateTime.Today);
@@ -26,10 +26,10 @@ namespace MemberManagement.Application.Validators.MemberValidators
                 .AddMonths(-maxMonths)
                 .AddDays(-maxDays);
 
-            if (dateOfBirth > minimumBirthDate)
+            if (birthDate > minimumBirthDate)
                 return new ValidationResult($"Age must be at least {minAgeInYears}.");
             
-            if(dateOfBirth < maximumBirthDate)
+            if(birthDate < maximumBirthDate)
                 return new ValidationResult($"Age must not exceed to {maxAgeInYears} years 6 months and 1 day.");
 
             return ValidationResult.Success;

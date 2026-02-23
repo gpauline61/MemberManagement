@@ -1,0 +1,16 @@
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Application\bin\Debug\net10.0\MemberManagement.Application.deps.json
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Application\bin\Debug\net10.0\MemberManagement.Application.dll
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Application\bin\Debug\net10.0\MemberManagement.Application.pdb
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Application\bin\Debug\net10.0\MemberManagement.Domain.dll
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Application\bin\Debug\net10.0\MemberManagement.Domain.pdb
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Application\obj\Debug\net10.0\MemberManagement.Application.csproj.AssemblyReference.cache
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Application\obj\Debug\net10.0\MemberManagement.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Application\obj\Debug\net10.0\MemberManagement.Application.AssemblyInfoInputs.cache
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Application\obj\Debug\net10.0\MemberManagement.Application.AssemblyInfo.cs
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Application\obj\Debug\net10.0\MemberManagement.Application.csproj.CoreCompileInputs.cache
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Application\obj\Debug\net10.0\MemberManagement.Application.sourcelink.json
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Application\obj\Debug\net10.0\MemberMa.D59FBF0F.Up2Date
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Application\obj\Debug\net10.0\MemberManagement.Application.dll
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Application\obj\Debug\net10.0\refint\MemberManagement.Application.dll
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Application\obj\Debug\net10.0\MemberManagement.Application.pdb
+C:\Users\ARDCI\source\repos\MemberManagement\MemberManagement.Application\obj\Debug\net10.0\ref\MemberManagement.Application.dll

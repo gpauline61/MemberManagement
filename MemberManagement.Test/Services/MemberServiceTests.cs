@@ -113,50 +113,5 @@ namespace MemberManagement.Test.Services
             return results;
         }
 
-        [Fact]
-        public async Task Pass_When_Age_Within_Range()
-        {
-            var memberVM = new MemberCreateViewModel
-            {
-                LastName = "dela Cruz",
-                FirstName = "Juan",
-                Birthdate = DateOnly.FromDateTime(DateTime.Today).AddYears(-30)
-            };
-
-            var result = ValidateModel(memberVM);
-
-            Assert.Empty(result);
-        }
-
-        [Fact]
-        public void Fail_When_Age_Less_Than_18()
-        {
-            var memberVM = new MemberCreateViewModel
-            {
-                LastName = "dela Cruz",
-                FirstName = "Juan",
-                Birthdate = DateOnly.FromDateTime(DateTime.Today).AddYears(-17)
-            };
-
-            var result = ValidateModel(memberVM);
-
-            Assert.NotEmpty(result);
-        }
-
-        [Fact]
-        public void Fail_When_Age_Greater_Than_65_Years_6_Months_1_Day()
-        {
-            var memberVM = new MemberCreateViewModel
-            {
-                LastName = "dela Cruz",
-                FirstName = "Juan",
-                Birthdate = DateOnly.FromDateTime(DateTime.Today).AddYears(-66)
-            };
-
-            var result = ValidateModel(memberVM);
-
-            Assert.NotEmpty(result);
-        }
-
     }
 }

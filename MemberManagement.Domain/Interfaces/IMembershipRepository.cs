@@ -1,18 +1,10 @@
-<<<<<<< HEAD
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-=======
-﻿using MemberManagement.Domain.Entities;
+using MemberManagement.Domain.Entities;
 using System.Collections;
->>>>>>> feature/updateMember
 
 namespace MemberManagement.Domain.Interfaces
 {
     public interface IMembershipRepository
     {
-<<<<<<< HEAD
-=======
         Task<IEnumerable> GetAll();
         bool Add(Membership membership);
         Task<Membership> DetailMembership(int id);
@@ -23,6 +15,5 @@ namespace MemberManagement.Domain.Interfaces
         bool checkMembership(Membership membership);
         bool checkMembershipId(int id);
         bool Update(Membership membership);
->>>>>>> feature/updateMember
     }
 }

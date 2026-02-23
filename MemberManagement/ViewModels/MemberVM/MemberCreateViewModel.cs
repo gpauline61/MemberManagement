@@ -17,7 +17,8 @@ namespace MemberManagement.Web.ViewModels.MemberVM
         //Date picker
         [DataType(DataType.Date)]
         [Display(Name = "Date of Birth")]
-        [AgeRangeAttribute]
+        [MaxDateToday]
+        [AgeRange(ErrorMessage = "Please input valid birthdate.")]
         public DateOnly Birthdate { get; set; }
         public string? Address { get; set; }
         public int? BranchId { get; set; }

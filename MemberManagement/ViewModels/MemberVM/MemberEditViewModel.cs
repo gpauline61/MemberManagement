@@ -1,4 +1,5 @@
-﻿using MemberManagement.Domain.Entities;
+﻿using MemberManagement.Application.Validators.MemberValidators;
+using MemberManagement.Domain.Entities;
 using MemberManagement.Domain.Enum;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
@@ -12,9 +13,13 @@ namespace MemberManagement.Web.ViewModels.MemberVM
         public string LastName { get; set; }
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
+
         [Display(Name = "Date of Birth")]
         [DataType(DataType.Date)]
+        [MaxDateToday]
+        [AgeRange]
         public DateOnly Birthdate { get; set; }
+
         public string? Address { get; set; }
         public int? BranchId { get; set; }
         public Branch? Branch { get; set; }

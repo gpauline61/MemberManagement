@@ -20,8 +20,8 @@ namespace MemberManagement.Infrastracture.Repositories
         {
             //Retrieve all Members in Db order by its Branch
             return await _context.Members
-                .OrderBy(m => m.BranchId)
                 .Include(m => m.Branch)
+                .OrderBy(b => b.Branch.BranchName)
                 .Include(m => m.Membership)
                 .ToListAsync();
         }
@@ -156,12 +156,16 @@ namespace MemberManagement.Infrastracture.Repositories
 
         public async Task<IEnumerable> GetBranches()
         {
-            var BranchList = await _context.Branches.ToListAsync();
+            var BranchList = await _context.Branches
+                .OrderBy(b => b.BranchName)
+                .ToListAsync();
             return BranchList;
         }
         public async Task<IEnumerable> GetMemberships()
         {
-            var MembershipList = await _context.Memberships.ToListAsync();
+            var MembershipList = await _context.Memberships
+                .OrderBy(m => m.MembershipType)
+                .ToListAsync();
             return MembershipList;
         }
     }

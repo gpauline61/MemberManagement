@@ -43,7 +43,7 @@
                         <tr>
                             <td>@Html.DisplayNameFor(Model => Model.Birthdate)</td>
                             <td>
-                                <input asp-for="Birthdate" class="form-control" max="@DateTime.Today.ToString("yyyy-MM-dd")" />
+                                <input asp-for="Birthdate" class="form-control" />
                                 <span asp-validation-for="Birthdate" class="text-danger"></span>
                             </td>
                         </tr>
@@ -58,7 +58,7 @@
                             <td>@Html.DisplayNameFor(Model => Model.Branch)</td>
                             <td>
                                 <select asp-for="BranchId" asp-items="@(ViewBag.BranchesList as SelectList)" class="form-control">
-                                    
+                                    <option value="" disabled selected>--Select--</option>
                                 </select>
                                 <span asp-validation-for="Branch" class="text-danger"></span>
                             </td>
@@ -67,7 +67,7 @@
                             <td>@Html.DisplayNameFor(Model => Model.Membership)</td>
                             <td>
                                 <select asp-for="MembershipId" asp-items="@(ViewBag.MembershipsList as SelectList)" class="form-control">
-                                    
+                                    <option value"" disabled selected>--Select--</option>
                                 </select>
                                 <span asp-validation-for="Membership" class="text-danger"></span>
                             </td>
